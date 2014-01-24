@@ -1,12 +1,12 @@
 package com.jach.examencisa;
 
-import com.jach.examencisa.db.DatabaseHelper;
-import com.jach.examencisa.model.Question;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
+
+import com.jach.examencisa.db.DatabaseHelper;
+import com.jach.examencisa.vo.QuestionVO;
 
 public class MainActivity extends Activity {
 
@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
         
         
         DatabaseHelper dbh = new DatabaseHelper(this);
-        Question q = dbh.randomQuestion();
+        QuestionVO q = dbh.randomQuestion();
         
         String message = q.getQuestion();
 

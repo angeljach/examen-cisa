@@ -1,22 +1,19 @@
 package com.jach.examencisa.db;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Random;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import com.jach.examencisa.R;
-import com.jach.examencisa.model.Answer;
-import com.jach.examencisa.model.Question;
+import com.jach.examencisa.model.ExamStatistics;
+import com.jach.examencisa.vo.QuestionVO;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
-import android.database.Cursor;
+import android.content.res.XmlResourceParser;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -29,21 +26,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int MAX_NUMBER_QUESTIONS = 1100;
     
-    private static final String SQL_CREATE_TABLE_QUESTION = "CREATE TABLE " + Question.TABLE_NAME + " (" +
-    		Question._ID + " INTEGER PRIMARY KEY" +
-    		"," + Question.COL_QUESTION + " TEXT NOT NULL" +
-    		"," + Question.COL_EXPLANATION + " TEXT NOT NULL" +
-    		"," + Question.COL_CATEGORY + " TEXT NOT NULL" +
-    		"," + Question.COL_LAST_QUESTION_DATE + " TEXT" +
-    		"," + Question.COL_WAS_CORRECT + " INTEGER" +
-    		");";
-    private static final String SQL_CREATE_TABLE_ANSWER = "CREATE TABLE " + Answer.TABLE_NAME + " (" +
-    		Answer._ID + " INTEGER PRIMARY KEY" +
-    		"," + Answer.COL_ID_QUESTION + " INTEGER NOT NULL" +
-    		"," + Answer.COL_ANSWER + " TEXT NOT NULL" +
-    		"," + Answer.COL_IS_ANSWER + " INTEGER NOT NULL" +
-    		"," + Answer.COL_SEQUENCE + " INTEGER NOT NULL" +
-    		"," + "FOREIGN KEY(" + Answer.COL_ID_QUESTION + ") REFERENCES " + Question.TABLE_NAME + "(" + Question._ID + ")" +
+    private static final String SQL_CREATE_TABLE_EXAMSTAT = "CREATE TABLE " + ExamStatistics.TABLE_NAME + " (" +
+    		ExamStatistics._ID + " INTEGER PRIMARY KEY" +
+    		"," + ExamStatistics.COL_LAST_QUESTION_DATE + " TEXT" +
+    		"," + ExamStatistics.COL_WAS_CORRECT + " INTEGER" +
     		");";
      
     public DatabaseHelper(Context context) {
@@ -53,85 +39,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE_TABLE_QUESTION);
-        db.execSQL(SQL_CREATE_TABLE_ANSWER);
+        db.execSQL(SQL_CREATE_TABLE_EXAMSTAT);
  
-        //Add default records
-        ContentValues values;
-        Resources res = fContext.getResources();
-        InputStream in;
-        BufferedReader reader;
-        
-        //---|| Questions
-        values = new ContentValues();
-        in = res.openRawResource(R.raw.question);
-        reader = new BufferedReader(new InputStreamReader(in));
-        try {
-        	String readLine = null;
-        	db.beginTransaction();
-        	while ((readLine = reader.readLine()) != null) {
-        		String[] lineValues = readLine.split("|");
-        		
-        		values.put(Question._ID, lineValues[0]);
-        		values.put(Question.COL_QUESTION, lineValues[1]);
-        		values.put(Question.COL_EXPLANATION, lineValues[2]);
-        		values.put(Question.COL_CATEGORY, lineValues[3]);
-        		
-        		db.insert(Question.TABLE_NAME, null, values);
-        	}
-        	db.endTransaction();
-        } catch(IOException ex) {
+        // Add default records
+        ContentValues values = new ContentValues();
+        db.beginTransaction();
+        for (int i=0 ; i<MAX_NUMBER_QUESTIONS ; i++) {
+        	values.put(ExamStatistics._ID, i+1);
+        	values.put(ExamStatistics.COL_LAST_QUESTION_DATE, "");
+        	values.put(ExamStatistics.COL_WAS_CORRECT, 0);
         	
-        } finally {
-        	try {
-        		in.close();
-        	} catch(IOException ex) {
-        		
-        	}
-        	try {
-        		reader.close();
-        	} catch(IOException ex) {
-        		
-        	}
-        	
+        	db.insert(ExamStatistics.TABLE_NAME, null, values);
         }
-        
-        
-      //---|| Answers
-        values = new ContentValues();
-        in = res.openRawResource(R.raw.answer);
-        reader = new BufferedReader(new InputStreamReader(in));
-        try {
-        	String readLine = null;
-        	db.beginTransaction();
-        	while ((readLine = reader.readLine()) != null) {
-        		String[] lineValues = readLine.split("|");
-        		
-        		values.put(Answer.COL_ANSWER, lineValues[0]);
-        		values.put(Answer.COL_SEQUENCE, lineValues[1]);
-        		values.put(Answer.COL_IS_ANSWER, lineValues[2]);
-        		values.put(Answer.COL_ID_QUESTION, lineValues[3]);
-        		
-        		db.insert(Answer.TABLE_NAME, null, values);
-        	}
-        	db.endTransaction();
-        } catch(IOException ex) {
-        	
-        } finally {
-        	try {
-        		in.close();            	        		
-        	} catch(IOException ex) {
-        		
-        	}
-        	try {
-        		reader.close();
-        	} catch(IOException ex) {
-        		
-        	}
-        }
-        
-        
-
+        db.setTransactionSuccessful();
+        db.endTransaction();
     }
  
     /* Update database to latest version */
@@ -141,8 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                      
         Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                 + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS " + Answer.TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + Question.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + ExamStatistics.TABLE_NAME);
         onCreate(db);
     }
     /*
@@ -161,6 +81,75 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 	
     
+    public QuestionVO randomQuestion() {
+    	Random r = new Random();
+    	int randomNumer = r.nextInt(MAX_NUMBER_QUESTIONS)+1;
+    	Log.i(TAG, "Pregunta aleatoria a buscar: " + randomNumer);
+    	
+    	////Get XML resource file
+        Resources res = fContext.getResources();
+         
+        //Open XML file
+    	XmlResourceParser xpp = res.getXml(R.xml.question);
+    	try {
+            //Check for end of document
+            int eventType = xpp.getEventType();
+            
+            //db.beginTransaction();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                //Search for record tags
+                if ((eventType == XmlPullParser.START_TAG) && (xpp.getName().equals("question"))){
+                    //QUESTION tag found, now get values and insert record
+                    
+                	
+                	String xmlId = xpp.getAttributeValue(null, "id");
+                	if (xmlId.equals(Integer.toString(randomNumer))) {
+                		eventType = xpp.next();
+                		
+                		String q = "";
+                		String exp = "";
+                		String cat = "";
+                		
+                		while ( ! ((eventType == XmlPullParser.END_TAG) && xpp.getName().equals("question")) ) {
+                			if (eventType == XmlPullParser.START_TAG) {
+                				if (xpp.getName().equals("q")) {
+                					eventType = xpp.next();
+                					q = xpp.getText();
+                				} else if (xpp.getName().equals("exp")) {
+                					eventType = xpp.next();
+                					exp = xpp.getText();
+                				} else if (xpp.getName().equals("cat")) {
+                					eventType = xpp.next();
+                					cat = xpp.getText();
+                				}
+                			}
+                			eventType = xpp.next();
+                		}
+                		//TODO La información de lastQuestionDate y WasCorrect las debo obtener de la BD
+                		QuestionVO question = new QuestionVO(randomNumer, q, exp, cat, null, false);
+                		return question;
+                	}
+                	
+                }
+                eventType = xpp.next();
+            }
+            //db.endTransaction();
+        }
+        //Catch errors
+        catch (XmlPullParserException e) {       
+            Log.e(TAG, e.getMessage(), e);
+        } catch (IOException e) {
+            Log.e(TAG, e.getMessage(), e);
+             
+        } finally {           
+            //Close the xml file
+            xpp.close();
+        }
+    	
+    	return null;
+    }
+    
+    /*
     public Question randomQuestion() {
     	// http://developer.android.com/training/basics/data-storage/databases.html#ReadDbRow
 
@@ -213,5 +202,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     			);
     	return q;
     }
+    */
     
 }
