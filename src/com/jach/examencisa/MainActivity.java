@@ -10,10 +10,9 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,8 +25,9 @@ public class MainActivity extends Activity {
 	private RadioGroup radioGroup;
 	private TextView textQuestion;
 	private TextView textAnswExpl;
+	private Button btnNewQuestion;
 	
-	private final static int TEXT_SIZE = 12; 
+	//private final static int TEXT_SIZE = 12; 
     
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,19 +42,22 @@ public class MainActivity extends Activity {
 		radioGroup = (RadioGroup) findViewById(R.id.radio_selection_group);
 		
 		textQuestion = (TextView) findViewById(R.id.text_question);
-		textQuestion.setTextSize(TEXT_SIZE);
+		//textQuestion.setTextSize(TEXT_SIZE);
 		textQuestion.setText(Html.fromHtml("Pregunta <b>#".concat(Integer.toString(q.getId())).concat("</b>").concat(q.getQuestion())));
 		
 		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
-		textAnswExpl.setTextSize(TEXT_SIZE);
+		//textAnswExpl.setTextSize(TEXT_SIZE);
 		textAnswExpl.setText(Html.fromHtml(q.getExplanation()));
 		textAnswExpl.setVisibility(View.INVISIBLE);
+		
+		btnNewQuestion = (Button) findViewById(R.id.btn_new_question);
+		//btnNewQuestion.setTextSize(TEXT_SIZE);
+		btnNewQuestion.setVisibility(View.INVISIBLE);
 		
 		addRadioButtons(lstAnswers);
 	}
     
 	private void addRadioButtons(List<AnswerVO> lstAnswers) {
-		int i=0;;
 		for (AnswerVO answer : lstAnswers) {
 			RadioButton radioButton = new RadioButton(this);
 			
@@ -62,13 +65,12 @@ public class MainActivity extends Activity {
 			radioButton.setLayoutParams(new LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 			radioButton.setText(Html.fromHtml(answer.getAnswer().replace("<p>", "").replace("</p>", "")));
-			radioButton.setTextSize(TEXT_SIZE);
-			radioButton.setId(i);
+			//radioButton.setTextSize(TEXT_SIZE);
+			radioButton.setId(answer.getSequence());
 			
 			addListenerOnRadioButton(radioButton, answer.isCorrect());
 			
-			radioGroup.addView(radioButton, i);
-			i++;
+			radioGroup.addView(radioButton, answer.getSequence());
 		}
 	}
 	
@@ -82,6 +84,12 @@ public class MainActivity extends Activity {
 	 
 				textAnswExpl.setTextColor(isCorrect ? Color.rgb(15,160,41) : Color.rgb(180,4,4));
 				textAnswExpl.setVisibility(View.VISIBLE);
+				btnNewQuestion.setVisibility(View.VISIBLE);
+				
+				for (int i=0 ; i<radioGroup.getChildCount() ; i++) {
+					((RadioButton) radioGroup.getChildAt(i)).setEnabled(false);
+				}
+				
 				
 				String toastMsg = (isCorrect) ? "CORRECTO" : "INCORRECTO";
 				Toast.makeText(MainActivity.this, toastMsg, Toast.LENGTH_SHORT).show();
