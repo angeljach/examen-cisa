@@ -7,12 +7,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jach.examencisa.db.DatabaseHelper;
 import com.jach.examencisa.vo.AnswerVO;
@@ -20,8 +23,11 @@ import com.jach.examencisa.vo.QuestionVO;
 
 public class MainActivity extends Activity {
 
+	private RadioGroup radioGroup;
+	private TextView textQuestion;
+	private TextView textAnswExpl;
+	
 	private final static int TEXT_SIZE = 12; 
-	RadioGroup radioGroup;
     
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,32 +41,18 @@ public class MainActivity extends Activity {
 		
 		radioGroup = (RadioGroup) findViewById(R.id.radio_selection_group);
 		
-		TextView textQuestion = (TextView) findViewById(R.id.text_question);
+		textQuestion = (TextView) findViewById(R.id.text_question);
 		textQuestion.setTextSize(TEXT_SIZE);
 		textQuestion.setText(Html.fromHtml("Pregunta <b>#".concat(Integer.toString(q.getId())).concat("</b>").concat(q.getQuestion())));
 		
-		//int numberOfRadioButtons = 7;
-		//addRadioButtons(numberOfRadioButtons);
+		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
+		textAnswExpl.setTextSize(TEXT_SIZE);
+		textAnswExpl.setText(Html.fromHtml(q.getExplanation()));
+		textAnswExpl.setVisibility(View.INVISIBLE);
+		
 		addRadioButtons(lstAnswers);
 	}
     
-	private void addRadioButtons(int numButtons) {
-		for (int i = 0; i < numButtons; i++) {
-			RadioButton radioButton = new RadioButton(this);
-
-			// set the values that you would otherwise hardcode in the xml...
-			radioButton.setLayoutParams(new LayoutParams(
-					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
-			// label the button...
-			radioButton.setText("Radio Button #" + i);
-			radioButton.setId(i);
-
-			// add it to the group.
-			radioGroup.addView(radioButton, i);
-		}
-	}
-	
 	private void addRadioButtons(List<AnswerVO> lstAnswers) {
 		int i=0;;
 		for (AnswerVO answer : lstAnswers) {
@@ -72,10 +64,31 @@ public class MainActivity extends Activity {
 			radioButton.setText(Html.fromHtml(answer.getAnswer().replace("<p>", "").replace("</p>", "")));
 			radioButton.setTextSize(TEXT_SIZE);
 			radioButton.setId(i);
+			
+			addListenerOnRadioButton(radioButton, answer.isCorrect());
+			
 			radioGroup.addView(radioButton, i);
 			i++;
 		}
 	}
+	
+	
+	public void addListenerOnRadioButton(RadioButton radioButton, final boolean isCorrect) {
+		radioButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//int selectedId = radioGroup.getCheckedRadioButtonId();
+				//RadioButton selectedRadioButton = (RadioButton) findViewById(selectedId);
+	 
+				textAnswExpl.setTextColor(isCorrect ? Color.rgb(15,160,41) : Color.rgb(180,4,4));
+				textAnswExpl.setVisibility(View.VISIBLE);
+				
+				String toastMsg = (isCorrect) ? "CORRECTO" : "INCORRECTO";
+				Toast.makeText(MainActivity.this, toastMsg, Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+	
     
     /*
     @Override

@@ -21,5 +21,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_question"
         />
+    
+    <TextView
+        android:id="@+id/text_answer_explanation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/radio_selection_group" />
 
 </RelativeLayout>
