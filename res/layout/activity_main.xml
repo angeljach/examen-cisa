@@ -7,10 +7,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
+    
+    <!-- http://developer.android.com/guide/topics/ui/layout/relative.html#Example -->
+    
     <TextView
+        android:id="@+id/text_question"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/radio_selection_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_below="@id/text_question"
+        />
 
 </RelativeLayout>

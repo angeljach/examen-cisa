@@ -41,7 +41,6 @@ public class XmlHelper {
                 if ((eventType == XmlPullParser.START_TAG) && (xpp.getName().equals("question"))){
                     //QUESTION tag found, now get values and insert record
                     
-                	
                 	String xmlId = xpp.getAttributeValue(null, "id");
                 	if (xmlId.equals(Integer.toString(idQuestion))) {
                 		eventType = xpp.next();
@@ -65,7 +64,8 @@ public class XmlHelper {
                 			}
                 			eventType = xpp.next();
                 		}
-                		//TODO La informaci�n de lastQuestionDate y WasCorrect las debo obtener de la BD
+                		//TODO La informacion de lastQuestionDate y WasCorrect las debo obtener de la BD
+                		Log.i(TAG, "Pregunta encontrada, regresando valor.");
                 		QuestionVO question = new QuestionVO(idQuestion, q, exp, cat, null, false);
                 		return question;
                 	}
@@ -90,6 +90,7 @@ public class XmlHelper {
     }
 	
 	public List<AnswerVO> getAnswers(int idQuestion) {
+		Log.i(TAG, "Buscando respuestas sobre pregunta: " + idQuestion);
 		List<AnswerVO> lstAnswer = new ArrayList<AnswerVO>();
 		
 		//Open XML file
@@ -116,6 +117,7 @@ public class XmlHelper {
             					eventType = xpp.next();
             					
             					String answer = xpp.getText();
+            					Log.i(TAG, "Respuesta encontrada. Sequence: " + sequence);
             					lstAnswer.add(new AnswerVO(answer, sequence, isCorrect));
                 			}
                 			eventType = xpp.next();
