@@ -1,19 +1,15 @@
 package com.jach.examencisa.db;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
-import com.jach.examencisa.R;
 import com.jach.examencisa.model.ExamStatistics;
+import com.jach.examencisa.vo.AnswerVO;
 import com.jach.examencisa.vo.QuestionVO;
+import com.jach.examencisa.xml.XmlHelper;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.XmlResourceParser;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -82,71 +78,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	
     
     public QuestionVO randomQuestion() {
+    	XmlHelper xmlHelper = new XmlHelper(fContext.getResources());
     	Random r = new Random();
-    	int randomNumer = r.nextInt(MAX_NUMBER_QUESTIONS)+1;
-    	Log.i(TAG, "Pregunta aleatoria a buscar: " + randomNumer);
-    	
-    	////Get XML resource file
-        Resources res = fContext.getResources();
-         
-        //Open XML file
-    	XmlResourceParser xpp = res.getXml(R.xml.question);
-    	try {
-            //Check for end of document
-            int eventType = xpp.getEventType();
-            
-            //db.beginTransaction();
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                //Search for record tags
-                if ((eventType == XmlPullParser.START_TAG) && (xpp.getName().equals("question"))){
-                    //QUESTION tag found, now get values and insert record
-                    
-                	
-                	String xmlId = xpp.getAttributeValue(null, "id");
-                	if (xmlId.equals(Integer.toString(randomNumer))) {
-                		eventType = xpp.next();
-                		
-                		String q = "";
-                		String exp = "";
-                		String cat = "";
-                		
-                		while ( ! ((eventType == XmlPullParser.END_TAG) && xpp.getName().equals("question")) ) {
-                			if (eventType == XmlPullParser.START_TAG) {
-                				if (xpp.getName().equals("q")) {
-                					eventType = xpp.next();
-                					q = xpp.getText();
-                				} else if (xpp.getName().equals("exp")) {
-                					eventType = xpp.next();
-                					exp = xpp.getText();
-                				} else if (xpp.getName().equals("cat")) {
-                					eventType = xpp.next();
-                					cat = xpp.getText();
-                				}
-                			}
-                			eventType = xpp.next();
-                		}
-                		//TODO La información de lastQuestionDate y WasCorrect las debo obtener de la BD
-                		QuestionVO question = new QuestionVO(randomNumer, q, exp, cat, null, false);
-                		return question;
-                	}
-                	
-                }
-                eventType = xpp.next();
-            }
-            //db.endTransaction();
-        }
-        //Catch errors
-        catch (XmlPullParserException e) {       
-            Log.e(TAG, e.getMessage(), e);
-        } catch (IOException e) {
-            Log.e(TAG, e.getMessage(), e);
-             
-        } finally {           
-            //Close the xml file
-            xpp.close();
-        }
-    	
-    	return null;
+    	return xmlHelper.getQuestion(r.nextInt(MAX_NUMBER_QUESTIONS)+1);
+    }
+    
+    public List<AnswerVO> answerFromQuestion(int idQuestion) {
+    	XmlHelper xmlHelper = new XmlHelper(fContext.getResources());
+    	return xmlHelper.getAnswers(idQuestion);
     }
     
     /*
