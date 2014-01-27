@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/principal_scroll_view"
     tools:context=".MainActivity" >
 
     <LinearLayout
@@ -10,7 +11,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:orientation="vertical" >
+        android:orientation="vertical" 
+        android:background="@color/background">
 
         <!-- http://developer.android.com/guide/topics/ui/layout/relative.html#Example -->
 

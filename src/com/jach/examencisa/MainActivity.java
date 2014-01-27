@@ -13,6 +13,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,42 +23,60 @@ import com.jach.examencisa.vo.QuestionVO;
 
 public class MainActivity extends Activity {
 
+	private ScrollView mainScrollView;
 	private RadioGroup radioGroup;
 	private TextView textQuestion;
 	private TextView textAnswExpl;
 	private Button btnNewQuestion;
 	
-	//private final static int TEXT_SIZE = 12; 
-    
+	private final DatabaseHelper dbh = new DatabaseHelper(this);
+	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
     	// http://rocketships.ca/blog/how-to-dynamically-add-radio-buttons/
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		DatabaseHelper dbh = new DatabaseHelper(this);
-        QuestionVO q = dbh.randomQuestion();
+		mainScrollView = (ScrollView)findViewById(R.id.principal_scroll_view);
+		textQuestion = (TextView) findViewById(R.id.text_question);
+		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
+		radioGroup = (RadioGroup) findViewById(R.id.radio_selection_group);
+		btnNewQuestion = (Button) findViewById(R.id.btn_new_question);
+		
+		addListenerOnNewQuestionButton(btnNewQuestion);
+		
+        init();
+	}
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+    public void init() {
+    	QuestionVO q = dbh.randomQuestion();
         List<AnswerVO> lstAnswers = dbh.answerFromQuestion(q.getId());
 		
-		radioGroup = (RadioGroup) findViewById(R.id.radio_selection_group);
-		
-		textQuestion = (TextView) findViewById(R.id.text_question);
-		//textQuestion.setTextSize(TEXT_SIZE);
+        // Return to the top of the page.
+        mainScrollView.fullScroll(View.FOCUS_UP);
+        
 		textQuestion.setText(Html.fromHtml("Pregunta <b>#".concat(Integer.toString(q.getId())).concat("</b>").concat(q.getQuestion())));
 		
-		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
-		//textAnswExpl.setTextSize(TEXT_SIZE);
 		textAnswExpl.setText(Html.fromHtml(q.getExplanation()));
 		textAnswExpl.setVisibility(View.INVISIBLE);
 		
-		btnNewQuestion = (Button) findViewById(R.id.btn_new_question);
-		//btnNewQuestion.setTextSize(TEXT_SIZE);
 		btnNewQuestion.setVisibility(View.INVISIBLE);
 		
 		addRadioButtons(lstAnswers);
-	}
+    }
     
 	private void addRadioButtons(List<AnswerVO> lstAnswers) {
+		if (radioGroup.getChildCount() > 0) {
+			radioGroup.removeAllViews();
+		}
+		
 		for (AnswerVO answer : lstAnswers) {
 			RadioButton radioButton = new RadioButton(this);
 			
@@ -75,7 +94,7 @@ public class MainActivity extends Activity {
 	}
 	
 	
-	public void addListenerOnRadioButton(RadioButton radioButton, final boolean isCorrect) {
+	private void addListenerOnRadioButton(RadioButton radioButton, final boolean isCorrect) {
 		radioButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -97,41 +116,14 @@ public class MainActivity extends Activity {
 		});
 	}
 	
-    
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
-        
-        
-        DatabaseHelper dbh = new DatabaseHelper(this);
-        QuestionVO q = dbh.randomQuestion();
-        List<AnswerVO> lstAnsw = dbh.answerFromQuestion(q.getId());
-        
-        String message = Integer.toString(q.getId()).concat(") ")
-        		.concat(q.getQuestion()).concat("<\br><\br>")
-        		.concat(lstAnsw.get(0).getAnswer()).concat("<\br><\br>")
-        		.concat(lstAnsw.get(1).getAnswer()).concat("<\br><\br>")
-        		.concat(lstAnsw.get(2).getAnswer()).concat("<\br><\br>")
-        		.concat(lstAnsw.get(3).getAnswer()).concat("<\br><\br>");
-
-        // Create the text view
-        TextView textView = new TextView(this);
-        textView.setTextSize(12);
-        textView.setText(Html.fromHtml(message));
-
-        // Set the text view as the activity layout
-        setContentView(textView);
-
-    }
-*/
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-    
+	private void addListenerOnNewQuestionButton(Button newQuestionButton) {
+		newQuestionButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) { 
+				init();
+			}
+		});
+	}
+	
 }
