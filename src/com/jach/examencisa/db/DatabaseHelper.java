@@ -1,26 +1,19 @@
 package com.jach.examencisa.db;
 
-import java.util.List;
-import java.util.Random;
-
-import com.jach.examencisa.model.ExamStatistics;
-import com.jach.examencisa.vo.AnswerVO;
-import com.jach.examencisa.vo.QuestionVO;
-import com.jach.examencisa.xml.XmlHelper;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.jach.examencisa.model.ExamStatistics;
+import com.jach.examencisa.util.ExamCisaConstants;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "cisa";
 	private static final String TAG = "DatabaseHelper";
     private final Context fContext;
-
-    private static final int MAX_NUMBER_QUESTIONS = 1100;
     
     private static final String SQL_CREATE_TABLE_EXAMSTAT = "CREATE TABLE " + ExamStatistics.TABLE_NAME + " (" +
     		ExamStatistics._ID + " INTEGER PRIMARY KEY" +
@@ -40,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Add default records
         ContentValues values = new ContentValues();
         db.beginTransaction();
-        for (int i=0 ; i<MAX_NUMBER_QUESTIONS ; i++) {
+        for (int i=0 ; i<ExamCisaConstants.MAX_NUMBER_QUESTIONS ; i++) {
         	values.put(ExamStatistics._ID, i+1);
         	values.put(ExamStatistics.COL_LAST_QUESTION_DATE, "");
         	values.put(ExamStatistics.COL_WAS_CORRECT, 0);
@@ -77,16 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 	
     
-    public QuestionVO randomQuestion() {
-    	XmlHelper xmlHelper = new XmlHelper(fContext.getResources());
-    	Random r = new Random();
-    	return xmlHelper.getQuestion(r.nextInt(MAX_NUMBER_QUESTIONS)+1);
-    }
     
-    public List<AnswerVO> answerFromQuestion(int idQuestion) {
-    	XmlHelper xmlHelper = new XmlHelper(fContext.getResources());
-    	return xmlHelper.getAnswers(idQuestion);
-    }
     
     /*
     public Question randomQuestion() {

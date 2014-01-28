@@ -17,7 +17,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jach.examencisa.db.DatabaseHelper;
 import com.jach.examencisa.vo.AnswerVO;
 import com.jach.examencisa.vo.QuestionVO;
 
@@ -29,7 +28,7 @@ public class MainActivity extends Activity {
 	private TextView textAnswExpl;
 	private Button btnNewQuestion;
 	
-	private final DatabaseHelper dbh = new DatabaseHelper(this);
+	private final QuestionHandler qh = new QuestionHandler(this);
 	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
 	private final static int COLOR_ANSW_WRONG = Color.RED;
 	 
@@ -59,15 +58,16 @@ public class MainActivity extends Activity {
     }
     
     public void init() {
-    	QuestionVO q = dbh.randomQuestion();
-        List<AnswerVO> lstAnswers = dbh.answerFromQuestion(q.getId());
+    	QuestionVO q = qh.randomQuestion();
+        List<AnswerVO> lstAnswers = qh.answerFromQuestion(q.getId());
 		
         // Return to the top of the page.
         mainScrollView.fullScroll(View.FOCUS_UP);
         
-		textQuestion.setText(Html.fromHtml("Pregunta <b>#".concat(Integer.toString(q.getId())).concat("</b>").concat(q.getQuestion())));
+		textQuestion.setText(Html.fromHtml("Pregunta <b>#".concat(Integer.toString(q.getId()))
+				.concat("</b><br/><br/>").concat(q.getQuestion()).replace("<p>", "").replace("</p>", "").concat("<br/>")));
 		
-		textAnswExpl.setText(Html.fromHtml(q.getExplanation()));
+		textAnswExpl.setText(Html.fromHtml("<br/>".concat(q.getExplanation())));
 		textAnswExpl.setVisibility(View.INVISIBLE);
 		
 		btnNewQuestion.setVisibility(View.INVISIBLE);

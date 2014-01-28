@@ -10,11 +10,17 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:orientation="vertical" 
+        android:orientation="vertical"
         android:background="@color/background">
 
         <!-- http://developer.android.com/guide/topics/ui/layout/relative.html#Example -->
+
+		<ImageView
+    		android:layout_height="wrap_content"
+    		android:layout_width="wrap_content"
+    		android:src="@drawable/star"
+    		android:layout_gravity="right"
+    		android:contentDescription="@string/btn_favorite" />
 
         <TextView
             android:id="@+id/text_question"
@@ -23,7 +29,7 @@
 
         <RadioGroup
             android:id="@+id/radio_selection_group"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
 
         <TextView
