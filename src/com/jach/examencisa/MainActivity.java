@@ -30,6 +30,9 @@ public class MainActivity extends Activity {
 	private Button btnNewQuestion;
 	
 	private final DatabaseHelper dbh = new DatabaseHelper(this);
+	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
+	private final static int COLOR_ANSW_WRONG = Color.RED;
+	 
 	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -73,8 +76,16 @@ public class MainActivity extends Activity {
     }
     
 	private void addRadioButtons(List<AnswerVO> lstAnswers) {
+		//---|| Initialize the radioGroup.
 		if (radioGroup.getChildCount() > 0) {
 			radioGroup.removeAllViews();
+		}
+		
+		int idCorrectAnswer = -1;
+		for (AnswerVO answer : lstAnswers) {
+			if (answer.isCorrect()) {
+				idCorrectAnswer = answer.getSequence();
+			}
 		}
 		
 		for (AnswerVO answer : lstAnswers) {
@@ -84,28 +95,29 @@ public class MainActivity extends Activity {
 			radioButton.setLayoutParams(new LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 			radioButton.setText(Html.fromHtml(answer.getAnswer().replace("<p>", "").replace("</p>", "")));
-			//radioButton.setTextSize(TEXT_SIZE);
 			radioButton.setId(answer.getSequence());
+			radioButton.setTextColor((answer.getSequence() % 2) == 0 
+					? Color.rgb(122, 122, 122) 
+					: Color.rgb(0, 0, 0));
 			
-			addListenerOnRadioButton(radioButton, answer.isCorrect());
+			addListenerOnRadioButton(radioButton, answer.isCorrect(), idCorrectAnswer);
 			
 			radioGroup.addView(radioButton, answer.getSequence());
 		}
 	}
 	
 	
-	private void addListenerOnRadioButton(RadioButton radioButton, final boolean isCorrect) {
+	private void addListenerOnRadioButton(RadioButton radioButton, final boolean isCorrect, final int idCorrectAnswer) {
 		radioButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//int selectedId = radioGroup.getCheckedRadioButtonId();
-				//RadioButton selectedRadioButton = (RadioButton) findViewById(selectedId);
-	 
-				textAnswExpl.setTextColor(isCorrect ? Color.rgb(15,160,41) : Color.rgb(180,4,4));
+				textAnswExpl.setTextColor(isCorrect ? COLOR_ANSW_CORRECT : COLOR_ANSW_WRONG);
 				textAnswExpl.setVisibility(View.VISIBLE);
 				btnNewQuestion.setVisibility(View.VISIBLE);
 				
+				//Disable all radio buttons.
 				for (int i=0 ; i<radioGroup.getChildCount() ; i++) {
+					((RadioButton) radioGroup.getChildAt(i)).setTextColor((idCorrectAnswer == i) ? COLOR_ANSW_CORRECT : COLOR_ANSW_WRONG);
 					((RadioButton) radioGroup.getChildAt(i)).setEnabled(false);
 				}
 				
