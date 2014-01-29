@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:id="@+id/principal_scroll_view"
     tools:context=".MainActivity" >
+    
 
     <LinearLayout
         android:layout_width="fill_parent"

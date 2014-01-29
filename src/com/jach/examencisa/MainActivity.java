@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -60,6 +61,35 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	/* 
+    	 * http://mobile.tutsplus.com/tutorials/android/android-sdk-implement-an-options-menu/
+    	 * This sample code starts new Activity screens for each item chosen.
+    	 * If you opt to do this, you will need to add an Activity class for each option
+    	 * in your application Java code as well as in the Manifest file.
+    	 * 
+    	 * startActivity(new Intent(this, About.class));
+    	 */
+    	 
+    	switch (item.getItemId()) {
+			case R.id.action_settings:
+				//---|| startActivity(new Intent(this, About.class));
+				Toast.makeText(MainActivity.this, "settings", Toast.LENGTH_SHORT).show();
+				return true;
+			case R.id.action_order:
+				//---|| startActivity(new Intent(this, Help.class));
+				Toast.makeText(MainActivity.this, "order", Toast.LENGTH_SHORT).show();
+				return true;
+			case R.id.action_about:
+				Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+				return true;
+			default:
+				Toast.makeText(MainActivity.this, "other", Toast.LENGTH_SHORT).show();
+				return super.onOptionsItemSelected(item);
+	    }
+    }
+    
     
     public void init() {
     	QuestionVO q = qh.randomQuestion();
