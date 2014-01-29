@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "cisa";
 	private static final String TAG = "DatabaseHelper";
-    private final Context fContext;
+    //private final Context fContext;
     
     private static final String SQL_CREATE_TABLE_EXAMSTAT = "CREATE TABLE " + ExamStatistics.TABLE_NAME + " (" +
     		ExamStatistics._ID + " INTEGER PRIMARY KEY" +
@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        fContext = context;
+        //fContext = context;
     } 
  
     @Override

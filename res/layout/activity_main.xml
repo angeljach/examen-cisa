@@ -10,6 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
+        android:paddingStart="16dp"
         android:orientation="vertical"
         android:background="@color/background">
 
@@ -19,13 +20,14 @@
     		android:layout_height="wrap_content"
     		android:layout_width="wrap_content"
     		android:src="@drawable/star"
-    		android:layout_gravity="right"
+    		android:layout_gravity="end"
     		android:contentDescription="@string/btn_favorite" />
 
         <TextView
             android:id="@+id/text_question"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true" />
 
         <RadioGroup
             android:id="@+id/radio_selection_group"
@@ -35,7 +37,8 @@
         <TextView
             android:id="@+id/text_answer_explanation"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" 
+            android:textIsSelectable="true" />
 
         <Button
             android:id="@+id/btn_new_question"

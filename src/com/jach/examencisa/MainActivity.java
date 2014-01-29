@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,16 +29,19 @@ public class MainActivity extends Activity {
 	private TextView textAnswExpl;
 	private Button btnNewQuestion;
 	
-	private final QuestionHandler qh = new QuestionHandler(this);
+	private QuestionHandler qh;
 	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
 	private final static int COLOR_ANSW_WRONG = Color.RED;
+	private static final String TAG = "MainActivity";
 	 
 	
     @Override
 	public void onCreate(Bundle savedInstanceState) {
     	// http://rocketships.ca/blog/how-to-dynamically-add-radio-buttons/
-		super.onCreate(savedInstanceState);
+    	super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		qh = new QuestionHandler(this);
 		
 		mainScrollView = (ScrollView)findViewById(R.id.principal_scroll_view);
 		textQuestion = (TextView) findViewById(R.id.text_question);

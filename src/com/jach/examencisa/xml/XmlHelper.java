@@ -109,6 +109,8 @@ public class XmlHelper {
                 	if (xmlId.equals(Integer.toString(idQuestion))) {
                 		eventType = xpp.next();
                 		
+                		Log.i(TAG, "Respuesta encontrada a la pregunta #" + xmlId);
+                		
                 		while ( ! ((eventType == XmlPullParser.END_TAG) && xpp.getName().equals("answer")) ) {
                 			if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("opcion")) {
             					int sequence = Integer.parseInt(xpp.getAttributeValue(null, "seq"));
@@ -117,7 +119,6 @@ public class XmlHelper {
             					eventType = xpp.next();
             					
             					String answer = xpp.getText();
-            					Log.i(TAG, "Respuesta encontrada. Sequence: " + sequence);
             					lstAnswer.add(new AnswerVO(answer, sequence, isCorrect));
                 			}
                 			eventType = xpp.next();
