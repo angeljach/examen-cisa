@@ -12,20 +12,24 @@ import com.jach.examencisa.xml.XmlHelper;
 
 public class QuestionHandler {
 
+	private final XmlHelper xmlHelper;
 	private final Context fContext;
 	
 	public QuestionHandler(Context context) {
         fContext = context;
+        xmlHelper = new XmlHelper(fContext.getResources());
     } 
 	
 	public QuestionVO randomQuestion() {
-    	XmlHelper xmlHelper = new XmlHelper(fContext.getResources());
     	Random r = new Random();
     	return xmlHelper.getQuestion(r.nextInt(ExamCisaConstants.MAX_NUMBER_QUESTIONS)+1);
     }
+	
+	public QuestionVO questionById(int idQuestion) {
+		return xmlHelper.getQuestion(idQuestion);
+	}
     
     public List<AnswerVO> answerFromQuestion(int idQuestion) {
-    	XmlHelper xmlHelper = new XmlHelper(fContext.getResources());
     	return xmlHelper.getAnswers(idQuestion);
     }
     
