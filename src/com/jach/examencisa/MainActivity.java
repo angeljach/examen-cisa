@@ -64,9 +64,9 @@ public class MainActivity extends Activity {
 		String ro = dbh.getPropertyRandomOrder();
 		
 		lastQuestion = Integer.parseInt(lq);
-		Log.i(TAG, "lastQuestion=" + lastQuestion);
+		Log.d(TAG, "lastQuestion=" + lastQuestion);
 		isRandomOrder = ro.equals("1") ? true : false;
-		Log.i(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
+		Log.d(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
 				
 		mainScrollView = (ScrollView)findViewById(R.id.principal_scroll_view);
 		textStatQuestion = (TextView) findViewById(R.id.text_stat_question);
@@ -114,14 +114,14 @@ public class MainActivity extends Activity {
     private void changeOrderSequence() {
     	//---|| Change randomOrder and update the value on DB.
     	dbh.setPropertyRandomOrder((isRandomOrder=!isRandomOrder) ? "1" : "0");
-    	Log.i(TAG, "Cambio en el orden de las preguntas a: ".concat(isRandomOrder ? "Aleatorio" : "Ordenado"));
+    	Log.i(TAG, "Change sequence questions to: ".concat(isRandomOrder ? "Random" : "Sort"));
     }
     
     private void promptPageNumber() {
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-		alert.setTitle("Saltar a página");
-		alert.setMessage("# Página");
+		alert.setTitle(getString(R.string.title_promt_goto_question));
+		alert.setMessage(getString(R.string.title_promt_msg_goto_question));
 
 		// Set an EditText view to get user input
 		final EditText input = new EditText(this);
@@ -130,7 +130,7 @@ public class MainActivity extends Activity {
 		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
 				String value = input.getText().toString();
-				String errorMsg = "Debes introducir un n�mero en el rango de [1, " + ExamCisaConstants.MAX_NUMBER_QUESTIONS + "]";
+				String errorMsg = String.format(getString(R.string.msg_error_wrong_question_number), ExamCisaConstants.MAX_NUMBER_QUESTIONS);
 				try {
 					int idQuestion = Integer.parseInt(value);
 					if (idQuestion < 1 || idQuestion > ExamCisaConstants.MAX_NUMBER_QUESTIONS) {
@@ -249,7 +249,7 @@ public class MainActivity extends Activity {
 						new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), 
 						isCorrect ? 1 : 0));
 				
-				String toastMsg = (isCorrect) ? "CORRECTO" : "INCORRECTO";
+				String toastMsg = (isCorrect) ? getString(R.string.msg_correct_answer) : getString(R.string.msg_wrong_answer);
 				Toast.makeText(MainActivity.this, toastMsg, Toast.LENGTH_SHORT).show();
 			}
 		});
