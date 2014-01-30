@@ -3,6 +3,8 @@ package com.jach.examencisa;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -89,16 +92,13 @@ public class MainActivity extends Activity {
     	 */
     	 
     	switch (item.getItemId()) {
-			case R.id.action_settings:
-				//---|| startActivity(new Intent(this, About.class));
-				Toast.makeText(MainActivity.this, "settings", Toast.LENGTH_SHORT).show();
-				return true;
 			case R.id.action_order:
 				changeOrderSequence();
 				this.init();
 				return true;
 			case R.id.action_about:
-				Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+				promptPageNumber();
 				return true;
 			default:
 				Toast.makeText(MainActivity.this, "other", Toast.LENGTH_SHORT).show();
@@ -111,6 +111,34 @@ public class MainActivity extends Activity {
     	isRandomOrder = !isRandomOrder;
     	dbh.setPropertyRandomOrder(isRandomOrder ? "1" : "0");
     	Log.i(TAG, "Cambio en el orden de las preguntas a: ".concat(isRandomOrder ? "Aleatorio" : "Ordenado"));
+    }
+    
+    private void promptPageNumber() {
+		AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+		alert.setTitle("Saltar a página");
+		alert.setMessage("# Página");
+
+		// Set an EditText view to get user input
+		final EditText input = new EditText(this);
+		alert.setView(input);
+
+		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				String value = input.getText().toString();
+				// Do something with value!
+				Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		alert.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// Canceled.
+					}
+				});
+
+		alert.show();
     }
     
     
