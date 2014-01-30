@@ -19,12 +19,7 @@ public class QuestionHandler {
         fContext = context;
         xmlHelper = new XmlHelper(fContext.getResources());
     } 
-	
-	public QuestionVO randomQuestion() {
-    	Random r = new Random();
-    	return xmlHelper.getQuestion(r.nextInt(ExamCisaConstants.MAX_NUMBER_QUESTIONS)+1);
-    }
-	
+
 	public QuestionVO questionById(int idQuestion) {
 		return xmlHelper.getQuestion(idQuestion);
 	}

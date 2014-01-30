@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ExamenCisa</string>
+    <color name="background">#FFFFFF</color><string name="app_name">ExamenCisa</string>
     <string name="action_order">Cambiar Orden</string><string name="action_goto_question">Ir a pregunta&#8230;</string><string name="action_about">Acerca De</string><string name="btn_new_question">Nueva Pregunta</string>
     <string name="btn_favorite">Favorito</string>
-    <color name="background">#FFFFFF</color>
+    
+    <color name="correct_answer">#00FF00</color>
     
     
     

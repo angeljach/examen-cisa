@@ -24,6 +24,12 @@
     		android:layout_gravity="end"
     		android:contentDescription="@string/btn_favorite" />
 
+		<TextView
+            android:id="@+id/text_stat_question"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true" />
+		
         <TextView
             android:id="@+id/text_question"
             android:layout_width="fill_parent"

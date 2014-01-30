@@ -1,7 +1,5 @@
 package com.jach.examencisa.model;
 
-import java.util.Date;
-
 import android.provider.BaseColumns;
 
 public class ExamStatistics implements BaseColumns {
@@ -11,28 +9,38 @@ public class ExamStatistics implements BaseColumns {
 	public static final String COL_LAST_QUESTION_DATE = "last_question_date";
 	public static final String COL_WAS_CORRECT = "was_correct";
 	
-	private Date lastQuestionDate;
-    private boolean wasCorrect;
+	private int idQuestion;
+	private String lastQuestionDate;
+    private int wasCorrect;
     
-	public ExamStatistics(Date lastQuestionDate, boolean wasCorrect) {
+	public ExamStatistics(int idQuestion, String lastQuestionDate, int wasCorrect) {
 		super();
+		this.idQuestion = idQuestion;
 		this.lastQuestionDate = lastQuestionDate;
 		this.wasCorrect = wasCorrect;
 	}
 
-	public Date getLastQuestionDate() {
+	public int getIdQuestion() {
+		return idQuestion;
+	}
+	
+	public void setIdQuestion(int idQuestion) {
+		this.idQuestion = idQuestion;
+	}
+	
+	public String getLastQuestionDate() {
 		return lastQuestionDate;
 	}
 
-	public void setLastQuestionDate(Date lastQuestionDate) {
+	public void setLastQuestionDate(String lastQuestionDate) {
 		this.lastQuestionDate = lastQuestionDate;
 	}
 
-	public boolean isWasCorrect() {
+	public int getWasCorrect() {
 		return wasCorrect;
 	}
 
-	public void setWasCorrect(boolean wasCorrect) {
+	public void setWasCorrect(int wasCorrect) {
 		this.wasCorrect = wasCorrect;
 	}
 

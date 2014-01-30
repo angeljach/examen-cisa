@@ -64,7 +64,6 @@ public class XmlHelper {
                 			}
                 			eventType = xpp.next();
                 		}
-                		//TODO La informacion de lastQuestionDate y WasCorrect las debo obtener de la BD
                 		Log.i(TAG, "Pregunta encontrada, regresando valor.");
                 		QuestionVO question = new QuestionVO(idQuestion, q, exp, cat, null, false);
                 		return question;

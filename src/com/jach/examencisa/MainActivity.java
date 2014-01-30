@@ -1,6 +1,9 @@
 package com.jach.examencisa;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jach.examencisa.db.DatabaseHelper;
+import com.jach.examencisa.model.ExamStatistics;
 import com.jach.examencisa.util.ExamCisaConstants;
 import com.jach.examencisa.vo.AnswerVO;
 import com.jach.examencisa.vo.QuestionVO;
@@ -31,6 +35,7 @@ public class MainActivity extends Activity {
 
 	private ScrollView mainScrollView;
 	private RadioGroup radioGroup;
+	private TextView textStatQuestion;
 	private TextView textQuestion;
 	private TextView textAnswExpl;
 	private Button btnNewQuestion;
@@ -64,6 +69,7 @@ public class MainActivity extends Activity {
 		Log.i(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
 				
 		mainScrollView = (ScrollView)findViewById(R.id.principal_scroll_view);
+		textStatQuestion = (TextView) findViewById(R.id.text_stat_question);
 		textQuestion = (TextView) findViewById(R.id.text_question);
 		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
 		radioGroup = (RadioGroup) findViewById(R.id.radio_selection_group);
@@ -96,8 +102,7 @@ public class MainActivity extends Activity {
 				changeOrderSequence();
 				this.init();
 				return true;
-			case R.id.action_about:
-				//Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+			case R.id.action_goto_question:
 				promptPageNumber();
 				return true;
 			default:
@@ -108,8 +113,7 @@ public class MainActivity extends Activity {
     
     private void changeOrderSequence() {
     	//---|| Change randomOrder and update the value on DB.
-    	isRandomOrder = !isRandomOrder;
-    	dbh.setPropertyRandomOrder(isRandomOrder ? "1" : "0");
+    	dbh.setPropertyRandomOrder((isRandomOrder=!isRandomOrder) ? "1" : "0");
     	Log.i(TAG, "Cambio en el orden de las preguntas a: ".concat(isRandomOrder ? "Aleatorio" : "Ordenado"));
     }
     
@@ -126,8 +130,19 @@ public class MainActivity extends Activity {
 		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
 				String value = input.getText().toString();
-				// Do something with value!
-				Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
+				String errorMsg = "Debes introducir un número en el rango de [1, " + ExamCisaConstants.MAX_NUMBER_QUESTIONS + "]";
+				try {
+					int idQuestion = Integer.parseInt(value);
+					if (idQuestion < 1 || idQuestion > ExamCisaConstants.MAX_NUMBER_QUESTIONS) {
+						Toast.makeText(MainActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+					} else {
+						//---|| Goto question.
+						init(idQuestion);
+					}
+				} catch(NumberFormatException ex) {
+					Toast.makeText(MainActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+				}
+				
 			}
 		});
 
@@ -141,10 +156,9 @@ public class MainActivity extends Activity {
 		alert.show();
     }
     
-    
-    public void init() {
+    public void init(int idQuestion) {
     	//---|| Get the new question and update the lastQuestion on DB.
-    	QuestionVO q = isRandomOrder ? qh.randomQuestion() : qh.questionById(++lastQuestion);
+    	QuestionVO q = qh.questionById(idQuestion);
     	
     	//Reset the counter when lasQuestion is the last question and the order is consecutive.
     	if ((lastQuestion == ExamCisaConstants.MAX_NUMBER_QUESTIONS) && !isRandomOrder) {
@@ -153,9 +167,16 @@ public class MainActivity extends Activity {
     	lastQuestion = q.getId();
     	dbh.setPropertyLastQuestion(Integer.toString(lastQuestion));
     	List<AnswerVO> lstAnswers = qh.answerFromQuestion(lastQuestion);
-		
+	
+    	//---|| Get statistics from last question.
+    	ExamStatistics exs = dbh.getExamStatisticsFromQuestion(q.getId());
+    	
         // Return to the top of the page.
         mainScrollView.fullScroll(View.FOCUS_UP);
+        
+        textStatQuestion.setText(exs.getLastQuestionDate());
+        textStatQuestion.setTextColor((exs.getWasCorrect() == 1) 
+        		? COLOR_ANSW_CORRECT : COLOR_ANSW_WRONG);
         
         textQuestion.setText(Html.fromHtml(String.format(
         		"<b>#%d/%d</b> (%s)<br/><br/>%s<br/>",
@@ -168,6 +189,12 @@ public class MainActivity extends Activity {
 		btnNewQuestion.setVisibility(View.INVISIBLE);
 		
 		addRadioButtons(lstAnswers);
+    }
+    
+    public void init() {
+    	init(isRandomOrder 
+    			? (new Random().nextInt(ExamCisaConstants.MAX_NUMBER_QUESTIONS)+1) 
+				: (++lastQuestion));    	
     }
     
 	private void addRadioButtons(List<AnswerVO> lstAnswers) {
@@ -216,6 +243,11 @@ public class MainActivity extends Activity {
 					((RadioButton) radioGroup.getChildAt(i)).setEnabled(false);
 				}
 				
+				//---|| Inserting statistic (last_question_date and was_correct) to DB.
+				dbh.setExamStatistics(new ExamStatistics(
+						lastQuestion, 
+						new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()), 
+						isCorrect ? 1 : 0));
 				
 				String toastMsg = (isCorrect) ? "CORRECTO" : "INCORRECTO";
 				Toast.makeText(MainActivity.this, toastMsg, Toast.LENGTH_SHORT).show();

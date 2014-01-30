@@ -84,9 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     public String getPropertyLastQuestion() {
-    	return this.getPropertyValue(
-    			AppProperties.DefaultValues.LAST_QUESTION.getKey()
-    			);
+    	return this.getPropertyValue(AppProperties.DefaultValues.LAST_QUESTION.getKey());
     }
 
     public void setPropertyLastQuestion(String lastQuestion) {
@@ -96,9 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     public String getPropertyRandomOrder() {
-    	return this.getPropertyValue(
-    			AppProperties.DefaultValues.RANDOM_ORDER.getKey()
-    			);
+    	return this.getPropertyValue(AppProperties.DefaultValues.RANDOM_ORDER.getKey());
     }
     
     /**
@@ -119,8 +115,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				new String[] { AppProperties.COL_VALUE },
 				AppProperties.COL_KEY.concat("=?"),
 				new String[] { key }, null, null, null, null);
-		if (cursor != null)
+		if (cursor != null) {
 			cursor.moveToFirst();
+		} else {
+			Log.e(TAG, "Propiedad [" + key + "] no encontrada en la BD.");
+			return null;
+		}
 		
 		String value = cursor.getString(0);
 		Log.i(TAG, "Valor en BD de propiedad " + key + " = '" + value + "'");
@@ -144,22 +144,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     	db.execSQL(sql);
     }
     
-    /*
-    public String getAnimal(String color) {
+    
+    
+    public ExamStatistics getExamStatisticsFromQuestion(int idQuestion) {
+    	Log.d(TAG, "Obteniendo estadística de pregunta (última fecha y si fue correcta): " + idQuestion);
     	SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor cursor = db.query("animals", new String[] { "title",
-				"color" }, "color=?",
-				new String[] { color }, null, null, null, null);
-		if (cursor != null)
+		Cursor cursor = db.query(ExamStatistics.TABLE_NAME, 
+				new String[] { ExamStatistics.COL_LAST_QUESTION_DATE, ExamStatistics.COL_WAS_CORRECT },
+				ExamStatistics._ID.concat("=?"),
+				new String[] { Integer.toString(idQuestion) }, null, null, null, null);
+		if (cursor != null) {
 			cursor.moveToFirst();
-		
-		String title = cursor.getString(0);
-		//String color = cursor.getString(1);
-		return title;
-    }*/
-	
+		} else {
+			Log.e(TAG, "Estadística no encontrada en BD para la pregunta " + idQuestion);
+			return null;
+		}
+		String lastQuestionDate = cursor.getString(0);
+		int wasCorrect = cursor.getInt(1);
+		Log.i(TAG, String.format("Estadistica encontrada (last_question_date='%s', wasCorrect=%d) para la pregunta %d", 
+				lastQuestionDate, wasCorrect, idQuestion));
+		return new ExamStatistics(idQuestion, lastQuestionDate, wasCorrect);
+
+    }
     
+    public void setExamStatistics(ExamStatistics exs) {
+		String sql = String.format("UPDATE %s SET %s='%s', %s=%d WHERE %s=%d", 
+				ExamStatistics.TABLE_NAME,
+				ExamStatistics.COL_LAST_QUESTION_DATE, exs.getLastQuestionDate(),
+				ExamStatistics.COL_WAS_CORRECT, exs.getWasCorrect(),
+				ExamStatistics._ID, exs.getIdQuestion());
+    	Log.i(TAG, sql);
+    	
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	db.execSQL(sql);
+    }
     
     
     /*
