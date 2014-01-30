@@ -3,10 +3,11 @@
 
     <string name="app_name">ExamenCisa</string>
     <string name="action_settings">Settings</string>
-    <string name="action_order">Ordenamiento</string>
-    <string name="action_about">Acerca De</string>
-    <string name="btn_new_question">Nueva Pregunta</string>
+    <string name="action_about">Acerca De</string><string name="action_order">Cambiar Orden</string><string name="btn_new_question">Nueva Pregunta</string>
     <string name="btn_favorite">Favorito</string>
     <color name="background">#FFFFFF</color>
+    
+    
+    
     
 </resources>

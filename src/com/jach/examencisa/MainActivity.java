@@ -19,6 +19,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jach.examencisa.db.DatabaseHelper;
+import com.jach.examencisa.util.ExamCisaConstants;
 import com.jach.examencisa.vo.AnswerVO;
 import com.jach.examencisa.vo.QuestionVO;
 
@@ -31,6 +33,11 @@ public class MainActivity extends Activity {
 	private Button btnNewQuestion;
 	
 	private QuestionHandler qh;
+	private DatabaseHelper dbh;
+	
+	private int lastQuestion;
+	private static boolean isRandomOrder;
+	
 	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
 	private final static int COLOR_ANSW_WRONG = Color.RED;
 	private static final String TAG = "MainActivity";
@@ -43,7 +50,16 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		qh = new QuestionHandler(this);
+		dbh = new DatabaseHelper(this);
 		
+		String lq = dbh.getPropertyLastQuestion();
+		String ro = dbh.getPropertyRandomOrder();
+		
+		lastQuestion = Integer.parseInt(lq);
+		Log.i(TAG, "lastQuestion=" + lastQuestion);
+		isRandomOrder = ro.equals("1") ? true : false;
+		Log.i(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
+				
 		mainScrollView = (ScrollView)findViewById(R.id.principal_scroll_view);
 		textQuestion = (TextView) findViewById(R.id.text_question);
 		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
@@ -58,10 +74,10 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+    	getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+        
     public boolean onOptionsItemSelected(MenuItem item) {
     	/* 
     	 * http://mobile.tutsplus.com/tutorials/android/android-sdk-implement-an-options-menu/
@@ -78,8 +94,8 @@ public class MainActivity extends Activity {
 				Toast.makeText(MainActivity.this, "settings", Toast.LENGTH_SHORT).show();
 				return true;
 			case R.id.action_order:
-				//---|| startActivity(new Intent(this, Help.class));
-				Toast.makeText(MainActivity.this, "order", Toast.LENGTH_SHORT).show();
+				changeOrderSequence();
+				this.init();
 				return true;
 			case R.id.action_about:
 				Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
@@ -90,17 +106,34 @@ public class MainActivity extends Activity {
 	    }
     }
     
+    private void changeOrderSequence() {
+    	//---|| Change randomOrder and update the value on DB.
+    	isRandomOrder = !isRandomOrder;
+    	dbh.setPropertyRandomOrder(isRandomOrder ? "1" : "0");
+    	Log.i(TAG, "Cambio en el orden de las preguntas a: ".concat(isRandomOrder ? "Aleatorio" : "Ordenado"));
+    }
+    
     
     public void init() {
-    	QuestionVO q = qh.randomQuestion();
-        List<AnswerVO> lstAnswers = qh.answerFromQuestion(q.getId());
+    	//---|| Get the new question and update the lastQuestion on DB.
+    	QuestionVO q = isRandomOrder ? qh.randomQuestion() : qh.questionById(++lastQuestion);
+    	
+    	//Reset the counter when lasQuestion is the last question and the order is consecutive.
+    	if ((lastQuestion == ExamCisaConstants.MAX_NUMBER_QUESTIONS) && !isRandomOrder) {
+    		lastQuestion = 0;
+    	}
+    	lastQuestion = q.getId();
+    	dbh.setPropertyLastQuestion(Integer.toString(lastQuestion));
+    	List<AnswerVO> lstAnswers = qh.answerFromQuestion(lastQuestion);
 		
         // Return to the top of the page.
         mainScrollView.fullScroll(View.FOCUS_UP);
         
-		textQuestion.setText(Html.fromHtml("Pregunta <b>#".concat(Integer.toString(q.getId()))
-				.concat("</b><br/><br/>").concat(q.getQuestion()).replace("<p>", "").replace("</p>", "").concat("<br/>")));
-		
+        textQuestion.setText(Html.fromHtml(String.format(
+        		"<b>#%d/%d</b> (%s)<br/><br/>%s<br/>",
+        		q.getId(), ExamCisaConstants.MAX_NUMBER_QUESTIONS, 
+        		isRandomOrder ? "Aleatorio" : "Secuencial",
+        		q.getQuestion())));
 		textAnswExpl.setText(Html.fromHtml("<br/>".concat(q.getExplanation())));
 		textAnswExpl.setVisibility(View.INVISIBLE);
 		
@@ -128,7 +161,7 @@ public class MainActivity extends Activity {
 			// set the values that you would otherwise hardcode in the xml...
 			radioButton.setLayoutParams(new LayoutParams(
 					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-			radioButton.setText(Html.fromHtml(answer.getAnswer().replace("<p>", "").replace("</p>", "")));
+			radioButton.setText(Html.fromHtml(answer.getAnswer()));
 			radioButton.setId(answer.getSequence());
 			radioButton.setTextColor((answer.getSequence() % 2) == 0 
 					? Color.rgb(122, 122, 122) 
@@ -162,13 +195,10 @@ public class MainActivity extends Activity {
 		});
 	}
 	
+	
 	private void addListenerOnNewQuestionButton(Button newQuestionButton) {
 		newQuestionButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) { 
-				init();
-			}
+			@Override public void onClick(View arg0) { init(); }
 		});
 	}
 	

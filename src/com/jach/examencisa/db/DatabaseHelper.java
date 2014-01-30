@@ -2,32 +2,44 @@ package com.jach.examencisa.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.jach.examencisa.model.AppProperties;
 import com.jach.examencisa.model.ExamStatistics;
 import com.jach.examencisa.util.ExamCisaConstants;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+	private static final int DATABASE_VERSION = 4;
 	private static final String DATABASE_NAME = "cisa";
 	private static final String TAG = "DatabaseHelper";
     //private final Context fContext;
     
-    private static final String SQL_CREATE_TABLE_EXAMSTAT = "CREATE TABLE " + ExamStatistics.TABLE_NAME + " (" +
-    		ExamStatistics._ID + " INTEGER PRIMARY KEY" +
-    		"," + ExamStatistics.COL_LAST_QUESTION_DATE + " TEXT" +
-    		"," + ExamStatistics.COL_WAS_CORRECT + " INTEGER" +
-    		");";
+    private static final String SQL_CREATE_TABLE_EXAMSTAT = String.format("CREATE TABLE %s (" +
+    		"%s INTEGER PRIMARY KEY, %s TEXT, %s INTEGER);", 
+    		ExamStatistics.TABLE_NAME, 
+    		ExamStatistics._ID,
+    		ExamStatistics.COL_LAST_QUESTION_DATE, 
+    		ExamStatistics.COL_WAS_CORRECT);
+    
+    private static final String SQL_CREATE_TABLE_APPPROP = String.format("CREATE TABLE %s (" +
+    		"%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT);", 
+    		AppProperties.TABLE_NAME, 
+    		AppProperties._ID,
+    		AppProperties.COL_KEY, 
+    		AppProperties.COL_VALUE);
      
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //fContext = context;
     } 
  
     @Override
     public void onCreate(SQLiteDatabase db) {
+    	db.execSQL(SQL_CREATE_TABLE_APPPROP);
         db.execSQL(SQL_CREATE_TABLE_EXAMSTAT);
  
         // Add default records
@@ -42,6 +54,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         db.setTransactionSuccessful();
         db.endTransaction();
+        
+        
+        //---|| Add property records
+        for (AppProperties.DefaultValues dVal : AppProperties.DefaultValues.values()) {
+        	insertValueOnAppPropertiesTable(db, dVal.getKey(), dVal.getDefaultValue());
+        }
     }
  
     /* Update database to latest version */
@@ -51,9 +69,81 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                      
         Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                 + newVersion + ", which will destroy all old data");
+        db.execSQL("DROP TABLE IF EXISTS " + AppProperties.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ExamStatistics.TABLE_NAME);
         onCreate(db);
     }
+    
+    private void insertValueOnAppPropertiesTable(SQLiteDatabase db, String key, String value) {
+    	Log.i(TAG, String.format("Insertando valores default en [%s] : [%s][%s]", 
+    			AppProperties.TABLE_NAME, key, value));
+    	ContentValues values = new ContentValues();
+    	values.put(AppProperties.COL_KEY, key);
+        values.put(AppProperties.COL_VALUE, value);
+        db.insert(AppProperties.TABLE_NAME, null, values);
+    }
+    
+    public String getPropertyLastQuestion() {
+    	return this.getPropertyValue(
+    			AppProperties.DefaultValues.LAST_QUESTION.getKey()
+    			);
+    }
+
+    public void setPropertyLastQuestion(String lastQuestion) {
+    	this.setPropertyValue(
+    			AppProperties.DefaultValues.LAST_QUESTION.getKey(), 
+    			lastQuestion);
+    }
+    
+    public String getPropertyRandomOrder() {
+    	return this.getPropertyValue(
+    			AppProperties.DefaultValues.RANDOM_ORDER.getKey()
+    			);
+    }
+    
+    /**
+     * 
+     * @param randomOrderIntegerValue Should be '0' to FALSE, or '1' to TRUE.
+     */
+    public void setPropertyRandomOrder(String randomOrderIntegerValue) {
+    	this.setPropertyValue(
+    			AppProperties.DefaultValues.RANDOM_ORDER.getKey(), 
+    			randomOrderIntegerValue);
+    }
+    
+    private String getPropertyValue(String key) {
+    	Log.d(TAG, "Obteniendo valor en BD de propiedad: " + key);
+    	SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor cursor = db.query(AppProperties.TABLE_NAME, 
+				new String[] { AppProperties.COL_VALUE },
+				AppProperties.COL_KEY.concat("=?"),
+				new String[] { key }, null, null, null, null);
+		if (cursor != null)
+			cursor.moveToFirst();
+		
+		String value = cursor.getString(0);
+		Log.i(TAG, "Valor en BD de propiedad " + key + " = '" + value + "'");
+		return value;
+    }
+    
+    private void setPropertyValue(String key, String value) {
+    	String sql = "UPDATE " + AppProperties.TABLE_NAME + 
+    			" SET " + AppProperties.COL_VALUE + "='" + value + "' " +
+				"WHERE " + AppProperties.COL_KEY + "='" + key + "'";
+    	Log.i(TAG, sql);
+    	
+    	
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	//ContentValues valores = new ContentValues();
+    	//valores.put(AppProperties.COL_VALUE, value);
+    	//db.update(AppProperties.TABLE_NAME, 
+    	//		valores, 
+    	//		AppProperties.COL_KEY + "=" + key, 
+    	//		null);
+    	db.execSQL(sql);
+    }
+    
     /*
     public String getAnimal(String color) {
     	SQLiteDatabase db = this.getReadableDatabase();

@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
 
 public class ExamStatistics implements BaseColumns {
 	
-	public static final String TABLE_NAME = "ExamStatistics";
+	public static final String TABLE_NAME = "EXAM_STATISTICS";
 
 	public static final String COL_LAST_QUESTION_DATE = "last_question_date";
 	public static final String COL_WAS_CORRECT = "was_correct";
@@ -35,7 +35,5 @@ public class ExamStatistics implements BaseColumns {
 	public void setWasCorrect(boolean wasCorrect) {
 		this.wasCorrect = wasCorrect;
 	}
-	
-	
 
 }
