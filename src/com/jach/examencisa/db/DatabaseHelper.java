@@ -75,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     private void insertValueOnAppPropertiesTable(SQLiteDatabase db, String key, String value) {
-    	Log.i(TAG, String.format("Insertando valores default en [%s] : [%s][%s]", 
+    	Log.i(TAG, String.format("Insert default valuest into [%s] : [%s][%s]", 
     			AppProperties.TABLE_NAME, key, value));
     	ContentValues values = new ContentValues();
     	values.put(AppProperties.COL_KEY, key);
@@ -108,7 +108,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     private String getPropertyValue(String key) {
-    	Log.d(TAG, "Obteniendo valor en BD de propiedad: " + key);
+    	Log.d(TAG, "Getting values on DB from property: " + key);
     	SQLiteDatabase db = this.getReadableDatabase();
 
 		Cursor cursor = db.query(AppProperties.TABLE_NAME, 
@@ -118,12 +118,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		if (cursor != null) {
 			cursor.moveToFirst();
 		} else {
-			Log.e(TAG, "Propiedad [" + key + "] no encontrada en la BD.");
+			Log.e(TAG, "Property [" + key + "] not found on DB.");
 			return null;
 		}
 		
 		String value = cursor.getString(0);
-		Log.i(TAG, "Valor en BD de propiedad " + key + " = '" + value + "'");
+		Log.i(TAG, "DB property value '" + key + "' = '" + value + "'");
 		return value;
     }
     
@@ -147,7 +147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     
     public ExamStatistics getExamStatisticsFromQuestion(int idQuestion) {
-    	Log.d(TAG, "Obteniendo estadística de pregunta (última fecha y si fue correcta): " + idQuestion);
+    	Log.d(TAG, "Getting question statistics (last_question_date and was_correct): " + idQuestion);
     	SQLiteDatabase db = this.getReadableDatabase();
 
 		Cursor cursor = db.query(ExamStatistics.TABLE_NAME, 
@@ -157,12 +157,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		if (cursor != null) {
 			cursor.moveToFirst();
 		} else {
-			Log.e(TAG, "Estadística no encontrada en BD para la pregunta " + idQuestion);
+			Log.e(TAG, "Statistic not found on DB for question " + idQuestion);
 			return null;
 		}
 		String lastQuestionDate = cursor.getString(0);
 		int wasCorrect = cursor.getInt(1);
-		Log.i(TAG, String.format("Estadistica encontrada (last_question_date='%s', wasCorrect=%d) para la pregunta %d", 
+		Log.i(TAG, String.format("Statistic found (last_question_date='%s', wasCorrect=%d) for question %d", 
 				lastQuestionDate, wasCorrect, idQuestion));
 		return new ExamStatistics(idQuestion, lastQuestionDate, wasCorrect);
 
