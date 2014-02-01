@@ -8,6 +8,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 
 import com.jach.examencisa.db.DatabaseHelper;
 import com.jach.examencisa.model.ExamStatistics;
+import com.jach.examencisa.settings.SettingsActivity;
 import com.jach.examencisa.util.ExamCisaConstants;
 import com.jach.examencisa.vo.AnswerVO;
 import com.jach.examencisa.vo.QuestionVO;
@@ -98,6 +100,11 @@ public class MainActivity extends Activity {
     	 */
     	 
     	switch (item.getItemId()) {
+    		case R.id.action_settings:
+    			// Launch settings activity
+    		    Intent i = new Intent(this, SettingsActivity.class);
+    		    startActivity(i);
+    			return true;
 			case R.id.action_order:
 				changeOrderSequence();
 				this.init();
