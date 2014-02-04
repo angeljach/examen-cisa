@@ -8,12 +8,20 @@
     <string name="action_goToQuestion">Ir a pregunta&#8230;</string>
     <string name="action_about">Acerca De</string>
     <string name="msg_error_wrong_question_number">Debes introducir un número en el rango de [1, %s]</string>
-    <string name="msg_wrong_answer">Incorrecto</string><string name="msg_correct_answer">Correcto!</string><string name="title_promt_goto_question">Saltar a página</string><string name="title_promt_msg_goto_question"># Página</string><string name="btn_new_question">Nueva Pregunta</string>
+    <string name="msg_wrong_answer">Incorrecto</string>
+    <string name="msg_correct_answer">Correcto!</string>
+    <string name="title_promt_goto_question">Saltar a pregunta</string>
+    <string name="title_promt_msg_goto_question"># Pregunta</string>
+    <string name="btn_new_question">Nueva Pregunta</string>
     <string name="btn_favorite">Favorito</string>
     <color name="correct_answer">#00FF00</color>
-    <string name="pref_randomOrder_key">pref_randomOrder</string><string name="pref_randomOrder">Aleatorio</string>
-    <string name="pref_randomOrder_summ">Selecciona la casilla para indicar que las preguntas deben seguir un orden aleatorio</string>
-    
-    
+    <string name="pref_title_sequence_key">pref_title_sequence</string>
+    <string name="pref_title_sequence">Secuencia</string>
+    <string name="pref_randomOrder_key">pref_randomOrder</string>
+    <string name="pref_randomOrder">Aleatorio</string>
+    <string name="pref_randomOrder_summ">Las preguntas siguen un orden aleatorio</string>
+    <string name="pref_onlyMissing_key">pref_onlyMissing</string>
+    <string name="pref_onlyMissing">Solo faltantes</string>
+    <string name="pref_onlyMissing_summ">Mostrar solo preguntas no contestadas o incorrectas</string>
 
 </resources>

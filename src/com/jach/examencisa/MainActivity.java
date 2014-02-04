@@ -49,7 +49,6 @@ public class MainActivity extends Activity {
 	private DatabaseHelper dbh;
 	
 	private int lastQuestion;
-	//private static boolean isRandomOrder;
 	
 	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
 	private final static int COLOR_ANSW_WRONG = Color.RED;
