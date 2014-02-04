@@ -9,12 +9,7 @@
         android:id="@+id/action_goto_question"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_goto_question"/>
-    <item
-        android:id="@+id/action_order"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_order"/>
+        android:title="@string/action_goToQuestion"/>
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"

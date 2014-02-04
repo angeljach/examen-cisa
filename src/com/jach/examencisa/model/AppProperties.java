@@ -5,8 +5,7 @@ import android.provider.BaseColumns;
 public class AppProperties implements BaseColumns {
 	
 	public enum DefaultValues{
-		LAST_QUESTION("last_question", "0"), 
-		RANDOM_ORDER("random_order", "0");
+		LAST_QUESTION("last_question", "0");
 		
 		private final String key;
 		private final String defaultValue;

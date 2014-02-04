@@ -9,9 +9,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,7 +49,7 @@ public class MainActivity extends Activity {
 	private DatabaseHelper dbh;
 	
 	private int lastQuestion;
-	private static boolean isRandomOrder;
+	//private static boolean isRandomOrder;
 	
 	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
 	private final static int COLOR_ANSW_WRONG = Color.RED;
@@ -63,12 +66,9 @@ public class MainActivity extends Activity {
 		dbh = new DatabaseHelper(this);
 		
 		String lq = dbh.getPropertyLastQuestion();
-		String ro = dbh.getPropertyRandomOrder();
 		
 		lastQuestion = Integer.parseInt(lq);
 		Log.d(TAG, "lastQuestion=" + lastQuestion);
-		isRandomOrder = ro.equals("1") ? true : false;
-		Log.d(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
 				
 		mainScrollView = (ScrollView)findViewById(R.id.principal_scroll_view);
 		textStatQuestion = (TextView) findViewById(R.id.text_stat_question);
@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
     	getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
         
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -105,10 +105,6 @@ public class MainActivity extends Activity {
     		    Intent i = new Intent(this, SettingsActivity.class);
     		    startActivity(i);
     			return true;
-			case R.id.action_order:
-				changeOrderSequence();
-				this.init();
-				return true;
 			case R.id.action_goto_question:
 				promptPageNumber();
 				return true;
@@ -116,12 +112,6 @@ public class MainActivity extends Activity {
 				Toast.makeText(MainActivity.this, "other", Toast.LENGTH_SHORT).show();
 				return super.onOptionsItemSelected(item);
 	    }
-    }
-    
-    private void changeOrderSequence() {
-    	//---|| Change randomOrder and update the value on DB.
-    	dbh.setPropertyRandomOrder((isRandomOrder=!isRandomOrder) ? "1" : "0");
-    	Log.i(TAG, "Change sequence questions to: ".concat(isRandomOrder ? "Random" : "Sort"));
     }
     
     private void promptPageNumber() {
@@ -132,6 +122,7 @@ public class MainActivity extends Activity {
 
 		// Set an EditText view to get user input
 		final EditText input = new EditText(this);
+		input.setInputType(InputType.TYPE_CLASS_NUMBER);
 		alert.setView(input);
 
 		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -164,6 +155,13 @@ public class MainActivity extends Activity {
     }
     
     public void init(int idQuestion) {
+    	//---|| Get preferences.
+    	SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+    	boolean isRandomOrder = settings.getBoolean(getString(R.string.pref_randomOrder_key), false);
+
+    	Log.d(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
+    	
+    	
     	//---|| Get the new question and update the lastQuestion on DB.
     	QuestionVO q = qh.questionById(idQuestion);
     	
@@ -199,6 +197,8 @@ public class MainActivity extends Activity {
     }
     
     public void init() {
+    	SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+    	boolean isRandomOrder = settings.getBoolean(getString(R.string.pref_randomOrder_key), false);
     	init(isRandomOrder 
     			? (new Random().nextInt(ExamCisaConstants.MAX_NUMBER_QUESTIONS)+1) 
 				: (++lastQuestion));    	
@@ -236,7 +236,8 @@ public class MainActivity extends Activity {
 	}
 	
 	
-	private void addListenerOnRadioButton(RadioButton radioButton, final boolean isCorrect, final int idCorrectAnswer) {
+	private void addListenerOnRadioButton(RadioButton radioButton, 
+			final boolean isCorrect, final int idCorrectAnswer) {
 		radioButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -268,5 +269,11 @@ public class MainActivity extends Activity {
 			@Override public void onClick(View arg0) { init(); }
 		});
 	}
+
+	/*
+	@Override
+	protected void onResume() {
+		
+	}*/
 	
 }

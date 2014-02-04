@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <CheckBoxPreference android:summary="@string/pref_randomOrder_summ" android:key="pref_randomOrder" android:defaultValue="false" android:title="@string/pref_randomOrder"/>
+    <CheckBoxPreference android:summary="@string/pref_randomOrder_summ" android:key="@string/pref_randomOrder_key" android:defaultValue="false" android:title="@string/pref_randomOrder"/>
     
 
 </PreferenceScreen>

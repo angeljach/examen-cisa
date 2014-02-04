@@ -87,26 +87,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     	return this.getPropertyValue(AppProperties.DefaultValues.LAST_QUESTION.getKey());
     }
 
+    /**
+     * 
+     * @param lastQuestion Should be string, because if not sends an error.
+     */
     public void setPropertyLastQuestion(String lastQuestion) {
     	this.setPropertyValue(
     			AppProperties.DefaultValues.LAST_QUESTION.getKey(), 
     			lastQuestion);
     }
-    
-    public String getPropertyRandomOrder() {
-    	return this.getPropertyValue(AppProperties.DefaultValues.RANDOM_ORDER.getKey());
-    }
-    
-    /**
-     * 
-     * @param randomOrderIntegerValue Should be '0' to FALSE, or '1' to TRUE.
-     */
-    public void setPropertyRandomOrder(String randomOrderIntegerValue) {
-    	this.setPropertyValue(
-    			AppProperties.DefaultValues.RANDOM_ORDER.getKey(), 
-    			randomOrderIntegerValue);
-    }
-    
+        
     private String getPropertyValue(String key) {
     	Log.d(TAG, "Getting values on DB from property: " + key);
     	SQLiteDatabase db = this.getReadableDatabase();
