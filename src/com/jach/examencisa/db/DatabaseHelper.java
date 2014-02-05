@@ -1,5 +1,7 @@
 package com.jach.examencisa.db;
 
+import java.util.Random;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -170,6 +172,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     	db.execSQL(sql);
     }
     
+    
+    /**
+     * First try to obtain the minimum question who hasn't been answered. Then try to obtain the minimum wrong answered question.
+     * @param isRandom 
+     * @return The _id of the Question who hasn't been answered or wrong. Return 0 if not match found.
+     */
+    private int getMissingQuestionId(boolean isRandom) {
+    	Log.d(TAG, "Getting next missing question in " + (isRandom ? "random" : "sequencial") + " order.");
+    	SQLiteDatabase db = this.getReadableDatabase();
+
+    	//First, trying with the missing questions.
+		Cursor cursor = db.query(ExamStatistics.TABLE_NAME, 
+				new String[] { ExamStatistics._ID },
+				ExamStatistics.COL_LAST_QUESTION_DATE.concat("=?"),
+				new String[] { "" }, null, null, null, null);
+		if (cursor != null) {
+			//---|| If is random, get the column count and set into a random position.
+			if (isRandom) {
+				int colCount = cursor.getColumnCount();
+				cursor.moveToPosition(new Random().nextInt(colCount));
+			} else {
+				cursor.moveToFirst();
+			}
+		} else {
+			//If not missing questions, try with wrong questions.
+			cursor = db.query(ExamStatistics.TABLE_NAME, 
+					new String[] { ExamStatistics._ID },
+					ExamStatistics.COL_WAS_CORRECT.concat("=?"),
+					new String[] { "0" }, null, null, null, null);
+			if (cursor != null) {
+				//---|| If is random, get the column count and set into a random position.
+				if (isRandom) {
+					int colCount = cursor.getColumnCount();
+					cursor.moveToPosition(new Random().nextInt(colCount));
+				} else {
+					cursor.moveToFirst();
+				}
+			} else {
+				Log.i(TAG, "There aren't missing questions.");
+				return 0;
+			}
+		}
+		int idQuestion = cursor.getInt(0);
+		Log.i(TAG, "IdQuestion found: '" + idQuestion);
+		return idQuestion;
+    }
     
     /*
     public Question randomQuestion() {
