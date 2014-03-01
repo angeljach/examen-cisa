@@ -160,14 +160,13 @@ public class MainActivity extends Activity {
 
     	Log.d(TAG, "isRandomOrder=" + (isRandomOrder ? "T" : "F"));
     	
+    	if ((idQuestion > ExamCisaConstants.MAX_NUMBER_QUESTIONS) || (idQuestion < 1)) {
+    		//Reset the counter.
+    		idQuestion = 1;
+    	}
     	
     	//---|| Get the new question and update the lastQuestion on DB.
     	QuestionVO q = qh.questionById(idQuestion);
-    	
-    	//Reset the counter when lasQuestion is the last question and the order is consecutive.
-    	if ((lastQuestion == ExamCisaConstants.MAX_NUMBER_QUESTIONS) && !isRandomOrder) {
-    		lastQuestion = 0;
-    	}
     	lastQuestion = q.getId();
     	dbh.setPropertyLastQuestion(Integer.toString(lastQuestion));
     	List<AnswerVO> lstAnswers = qh.answerFromQuestion(lastQuestion);
