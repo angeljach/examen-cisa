@@ -13,6 +13,8 @@
     <string name="title_promt_goto_question">Saltar a pregunta</string>
     <string name="title_promt_msg_goto_question"># Pregunta</string>
     <string name="btn_new_question">Nueva Pregunta</string>
+    <string name="btn_prev_question">&#171;</string>
+    <string name="btn_next_question">&#187;</string>
     <string name="btn_favorite">Favorito</string>
     <color name="correct_answer">#00FF00</color>
     <string name="pref_title_sequence_key">pref_title_sequence</string>

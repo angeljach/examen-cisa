@@ -44,11 +44,14 @@ public class MainActivity extends Activity {
 	private TextView textQuestion;
 	private TextView textAnswExpl;
 	private Button btnNewQuestion;
+	private Button btnNextQuestion;
+	private Button btnPrevQuestion;
 	
 	private QuestionHandler qh;
 	private DatabaseHelper dbh;
 	
 	private int lastQuestion;
+	
 	
 	private final static int COLOR_ANSW_CORRECT = Color.rgb(15,160,41);
 	private final static int COLOR_ANSW_WRONG = Color.RED;
@@ -65,7 +68,8 @@ public class MainActivity extends Activity {
 		dbh = new DatabaseHelper(this);
 		
 		String lq = dbh.getPropertyLastQuestion();
-		
+
+		//---|| Only if lastQuestion in [1, 1100] else 1
 		lastQuestion = Integer.parseInt(lq);
 		Log.d(TAG, "lastQuestion=" + lastQuestion);
 				
@@ -75,8 +79,12 @@ public class MainActivity extends Activity {
 		textAnswExpl = (TextView) findViewById(R.id.text_answer_explanation);
 		radioGroup = (RadioGroup) findViewById(R.id.radio_selection_group);
 		btnNewQuestion = (Button) findViewById(R.id.btn_new_question);
+		btnNextQuestion = (Button) findViewById(R.id.btn_next_question);
+		btnPrevQuestion = (Button) findViewById(R.id.btn_prev_question);
 		
 		addListenerOnNewQuestionButton(btnNewQuestion);
+		addListenerOnNextQuestionButton(btnNextQuestion);
+		addListenerOnPrevQuestionButton(btnPrevQuestion);
 		
         init();
 	}
@@ -167,6 +175,7 @@ public class MainActivity extends Activity {
     	
     	//---|| Get the new question and update the lastQuestion on DB.
     	QuestionVO q = qh.questionById(idQuestion);
+    	
     	lastQuestion = q.getId();
     	dbh.setPropertyLastQuestion(Integer.toString(lastQuestion));
     	List<AnswerVO> lstAnswers = qh.answerFromQuestion(lastQuestion);
@@ -265,6 +274,18 @@ public class MainActivity extends Activity {
 	private void addListenerOnNewQuestionButton(Button newQuestionButton) {
 		newQuestionButton.setOnClickListener(new OnClickListener() {
 			@Override public void onClick(View arg0) { init(); }
+		});
+	}
+	
+	private void addListenerOnNextQuestionButton(Button nextQuestionButton) {
+		nextQuestionButton.setOnClickListener(new OnClickListener() {
+			@Override public void onClick(View arg0) { init(); }
+		});
+	}
+	
+	private void addListenerOnPrevQuestionButton(Button prevQuestionButton) {
+		prevQuestionButton.setOnClickListener(new OnClickListener() {
+			@Override public void onClick(View arg0) { init(--lastQuestion); }
 		});
 	}
 

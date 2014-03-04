@@ -24,6 +24,25 @@
     		android:layout_gravity="end"
     		android:contentDescription="@string/btn_favorite" />
 
+		<RelativeLayout
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content" >
+
+   	        <Button android:id="@+id/btn_prev_question"
+	            	android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_alignParentTop="true"
+		            android:text="@string/btn_prev_question" />
+
+			<Button android:id="@+id/btn_next_question"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:text="@string/btn_next_question" />
+    	</RelativeLayout>
+		
 		<TextView
             android:id="@+id/text_stat_question"
             android:layout_width="fill_parent"
