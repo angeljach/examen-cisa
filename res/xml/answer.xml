@@ -342,124 +342,124 @@
 <opcion seq="3" correct="1">Identificar el riesgo general significativo desde un solo vector de amenazas</opcion>
 </answer>
 <answer id="58">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Crear una matriz de funciones de trabajo</opcion>
+<opcion seq="1" correct="0">Aplicar etiquetas de datos persistentes</opcion>
+<opcion seq="2" correct="0">Activar la autenticación de múltiples factores</opcion>
+<opcion seq="3" correct="0">Usar logon scripts individuales</opcion>
 </answer>
 <answer id="59">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Documentación</opcion>
+<opcion seq="1" correct="0">Autorización</opcion>
+<opcion seq="2" correct="1">Preparación de cronogramas</opcion>
+<opcion seq="3" correct="0">Pruebas</opcion>
 </answer>
 <answer id="60">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Oportunidad del informe</opcion>
+<opcion seq="1" correct="1">Relevancia para el destinatario</opcion>
+<opcion seq="2" correct="0">Precisión de la medición</opcion>
+<opcion seq="3" correct="0">El costo de obtener la métrica</opcion>
 </answer>
 <answer id="61">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Probabilidad e impacto</opcion>
+<opcion seq="1" correct="0">Impacto y exposición</opcion>
+<opcion seq="2" correct="0">Criticidad y sensibilidad de los activos</opcion>
+<opcion seq="3" correct="0">Valor y clasificación de los activos</opcion>
 </answer>
 <answer id="62">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Garantizar la configuración adecuada de los dispositivos que almacenan y procesan información</opcion>
+<opcion seq="1" correct="1">Entender el riesgo de la tecnología y su contribución a los objetivos de seguridad</opcion>
+<opcion seq="2" correct="0">Ayudar y asesorar sobre la adquisición e implementación de tecnología de la información</opcion>
+<opcion seq="3" correct="0">Mejorar la comunicación entre la seguridad de la información y las funciones del negocio</opcion>
 </answer>
 <answer id="63">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">El estándar no está en conformidad con los procedimientos</opcion>
+<opcion seq="1" correct="0">El personal de TI no entiende el estándar</opcion>
+<opcion seq="2" correct="0">El estándar no es consistente con las directrices</opcion>
+<opcion seq="3" correct="1">Los objetivos de control no se están cumpliendo</opcion>
 </answer>
 <answer id="64">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Reducir el costo del desarrollo del sistema</opcion>
+<opcion seq="1" correct="0">Ayudar al desarrollo de políticas y estrategias</opcion>
+<opcion seq="2" correct="1">Administrar eficazmente la complejidad</opcion>
+<opcion seq="3" correct="0">Determinar áreas que serán un problema</opcion>
 </answer>
 <answer id="65">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Comunicarse con el proveedor para modificar la aplicación</opcion>
+<opcion seq="1" correct="1">Evaluar el riesgo e identificar los controles compensatorios</opcion>
+<opcion seq="2" correct="0">Aprobar una excepción a la política para satisfacer las necesidades del negocio</opcion>
+<opcion seq="3" correct="0">Revisar y actualizar las líneas base de configuración del sistema operativo (OS)</opcion>
 </answer>
 <answer id="66">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Escoger un subconjunto de personas influyentes para promocionar los beneficios del programa de seguridad</opcion>
+<opcion seq="1" correct="0">Mantener una capacitación estructurada en pequeños grupos sobre una base anual</opcion>
+<opcion seq="2" correct="0">Solicitarle a cada empleado que complete un módulo de capacitación autodidacta una vez por año</opcion>
+<opcion seq="3" correct="0">Ofrecer capacitación a todos los empleados de toda la organización a través de transmisión de video</opcion>
 </answer>
 <answer id="67">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">En las políticas</opcion>
+<opcion seq="1" correct="0">En la arquitectura</opcion>
+<opcion seq="2" correct="1">En la estrategia</opcion>
+<opcion seq="3" correct="0">En los procedimientos</opcion>
 </answer>
 <answer id="68">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Los controles de acceso actuales han sido insuficientes para prevenir una serie de brechas graves en la red</opcion>
+<opcion seq="1" correct="0">El gerente de seguridad de la información ha determinado que el cumplimiento con los estándares de configuración es inadecuado</opcion>
+<opcion seq="2" correct="0">Los resultados de una auditoría han identificado un problema que afecta la viabilidad de la organización</opcion>
+<opcion seq="3" correct="1">La gerencia ha exigido el cumplimiento de un conjunto de requisitos de seguridad de información recientemente establecidos</opcion>
 </answer>
 <answer id="69">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Una base de datos del proyecto</opcion>
+<opcion seq="1" correct="1">Una base de datos de la cartera (portfolio) de proyectos</opcion>
+<opcion seq="2" correct="0">Documentos de las políticas</opcion>
+<opcion seq="3" correct="0">Una oficina de administración del programa</opcion>
 </answer>
 <answer id="70">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Crear la política de seguridad de la información</opcion>
+<opcion seq="1" correct="0">Maximizar el tiempo de actividad del sistema</opcion>
+<opcion seq="2" correct="0">Desarrollar controles sólidos</opcion>
+<opcion seq="3" correct="1">Implementar la estrategia</opcion>
 </answer>
 <answer id="71">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Monitoreo de un indicador clave de riesgo (KRI)</opcion>
+<opcion seq="1" correct="0">Determinar si el personal ingresa a las dependencias aprovechando que otras personas sí se autenticaron</opcion>
+<opcion seq="2" correct="0">Supervisión del departamento de seguridad fisica</opcion>
+<opcion seq="3" correct="0">Evaluación del proceso inicio único de sesión (SSO)</opcion>
 </answer>
 <answer id="72">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Iniciar el proceso de excepción</opcion>
+<opcion seq="1" correct="0">Modificar la política para abordar el riesgo</opcion>
+<opcion seq="2" correct="0">Incrementar la exigencia de cumplimiento</opcion>
+<opcion seq="3" correct="1">Realizar una evaluación de riesgos</opcion>
 </answer>
 <answer id="73">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Cuando integra controles de acceso para todos los activos de TI</opcion>
+<opcion seq="1" correct="1">Cuando garantiza que todas las actividades de los usuarios pueden ser identificables de manera única</opcion>
+<opcion seq="2" correct="0">Cuando valida las identidades de los usuarios a través de mecanismos de autenticación</opcion>
+<opcion seq="3" correct="0">Cuando se basa en un modelo de controles de acceso basados en roles (RBAC)</opcion>
 </answer>
 <answer id="74">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Los estándares y políticas sólo tienen una relación indirecta</opcion>
+<opcion seq="1" correct="0">Los estándares proporcionan una descripción detallada del significado de la política</opcion>
+<opcion seq="2" correct="1">Los estándares proporcionan instrucciones para lograr el cumplimiento con la intención de la política</opcion>
+<opcion seq="3" correct="0">Los estándares pueden existir sin una relación con alguna política en particular</opcion>
 </answer>
 <answer id="75">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Una política de redes sociales y entrenamiento de concienciación</opcion>
+<opcion seq="1" correct="0">Escaneo para encontrar y eliminar anuncios inadecuados</opcion>
+<opcion seq="2" correct="0">Bloqueo de puertos a aplicaciones de redes sociales</opcion>
+<opcion seq="3" correct="0">Evaluación de posibles responsabilidades legales</opcion>
 </answer>
 <answer id="76">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Debe ser operada por la seguridad de la información para garantizar el mantenimiento de la seguridad</opcion>
+<opcion seq="1" correct="0">Debe ser supervisada por el comité de dirección debido a su importancia</opcion>
+<opcion seq="2" correct="0">Debe ser secundaria a la gestión de la configuración y liberación</opcion>
+<opcion seq="3" correct="1">Debe incluir una notificación obligatoria del departamento de seguridad de la información</opcion>
 </answer>
 <answer id="77">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Como respuesta a recomendaciones de auditoría</opcion>
+<opcion seq="1" correct="0">Debido a la complejidad de la interpretación de ataques</opcion>
+<opcion seq="2" correct="1">Como resultado de un análisis de costo-beneficio</opcion>
+<opcion seq="3" correct="0">Debido a la escasez de personal competente</opcion>
 </answer>
 <answer id="78">
 <opcion seq="0" correct=""></opcion>

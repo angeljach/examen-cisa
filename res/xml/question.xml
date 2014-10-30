@@ -422,124 +422,186 @@ D. El riesgo individual con mínimo impacto puede constituir un riesgo general si
 <cat>Gestión de Riesgo de la Información y Cumplimiento (Dominio 2)</cat>
 </question>
 <question id="58" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de los siguientes enfoques es el MEJOR para diseñar controles de acceso basados en los roles (RBAC)?</q>
+<exp>A. Una matriz que documente las funciones asociadas con clases de trabajo particulares, a la que típicamente se refiere como matriz de segregación de funciones (SoD), muestra cuáles son los roles que se requieren o permiten tener determinados permisos.
+B. Las etiquetas de datos persistentes se aplican a ambientes de control de acceso obligatorio (MAC) donde los permisos son negociados por los objetos mismos. Estos no tienen en cuenta los controles de acceso basados en los roles (RBAC).
+C. La autenticación de múltiples factores se ocupa de cómo los usuarios autentican sus identidades, qué es lo que ayuda a garantizar que las personas son quien dicen ser . No determina los permisos a los cuales están asignados, particularmente en el modelo de controles de acceso basados en los roles (RBAC), donde los permisos están asignados a los roles en lugar de los usuarios individuales.
+D. Usar scripts de ingreso automatizados es práctico en algunos ambientes, pero asignar permisos a cuentas individuales es contrario al intento de controles de acceso basados en los roles (RBAC).</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="59" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de los siguientes pasos del proceso de gestión de cambios puede ser pasado por alto para implementar un cambio de emergencia?</q>
+<exp>A. Los cambios de emergencia requieren documentación, aunque pueden ocurrir después de la implementación.
+B. Los cambios de emergencia requieren autorización formal, aunque pueden ocurrir después de la implementación.
+C. Cuando un cambio está siendo realizado sobre una base de emergencia, en general es implementado fuera del cronograma normal. Sin embargo, no deben ser pasados por alto otros aspectos del proceso de gestión de cambios.
+D. Los cambios de emergencia requieren pruebas.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="60" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de los siguientes criterios es el MÁS esencial para las métricas operacionales?</q>
+<exp>A. La oportunidad del informe es importante, pero secundaria a la relevancia .
+B. A menos que la métrica sea relevante para el destinatario y que el destinatario entienda qué significa la métrica y qué medida tomar, de tener que tomar alguna, todos los demás criterios son de poca importancia.
+C. Un alto grado de precisión no es esencial en tanto la métrica sea confiable y las indicaciones estén dentro de un rango aceptable.
+D. El costo siempre es una consideración, pero secundaria a las demás.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="61" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuáles son las consideraciones MÁS importantes al priorizar el desarrollo de controles y contramedidas?</q>
+<exp>A. La probabilidad de que ocurra un compromiso y el impacto de ese compromiso son los dos factores más importantes para determinar el riesgo, que a su vez impulsa el desarrollo de controles y contramedidas.
+B. El impacto y la exposición combinadas no abordan la probabilidad de que ocurra un incidente ; estas consideraciones no son suficientes por sí mismas.
+C. La criticidad y la sensibilidad de los activos son las bases de la clasificación de activos pero sólo tratan el posible impacto, no la probabilidad.
+D. La evaluación de los activos es un componente de clasificación y aborda sólo un posible impacto.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="62" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál es la razón MÁS importante de que un gerente de seguridad de la información deba tener un entendimiento de la tecnología de la información?</q>
+<exp>A. La configuración de los dispositivos no es la responsabilidad principal del gerente de seguridad de la información. El gerente de seguridad trabajará a través de su personal técnico para garantizar que las configuraciones sean las apropiadas.
+B. El conocimiento sobre tecnología de la información ayuda al gerente de seguridad de la información a entender de qué manera los cambios en el ambiente técnico afectan la postura de seguridad.
+C. Asesorar sobre la adquisición e implementación respecto de las cuestiones de seguridad es una función secundaria del gerente de seguridad de la información.
+D. Las decisiones sobre seguridad de la información pueden tomarse de manera más efectiva cuando son entendidas por personas en funciones del negocio, pero es secundario a entender la relación entre tecnología y seguridad de la información.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="63" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de las siguientes condiciones es la MÁS probable que requiera que un estándar corporativo sea modificado?</q>
+<exp>A. Si un procedimiento no cumple con el estándar, el procedimiento debe ser modificado, no el estándar.
+B. El personal de TI que no entiende el estándar puede necesitar aclaración y/o capacitación.
+C. Las inconsistencias con las directrices requieren que las directrices sean modificadas para cumplir con el estándar.
+D. Si el cumplimiento con el estándar no logra los objetivos de control, el estándar requiere modificación.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="64" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de los siguientes propósitos es para desarrollar una arquitectura de seguridad como manera de cumplir con los objetivos de negocio?</q>
+<exp>A. Si bien una parte de los problemas de arquitectura es ahorrar costos donde sea posible, la efectividad y la adecuación son las principales prioridades.
+B. La arquitectura incluye la manifestación fisica de la política y parte de los medios para llevar a cabo la estrategia, por lo que estrategia y política preceden a la arquitectura.
+C. Los sistemas complejos se administran mejor con arquitectura adecuada, que incluye personas, procesos y tecnología que deben estar alineados para cumplir con los objetivos de negocio.
+D. Las revisiones de la arquitectura ayudan a resaltar inconvenientes y posibles problemas.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="65" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Una nueva aplicación de negocios requiere que no se cumpla con la configuración estándar del sistema operativo (OS). ¿Cuál de los siguientes pasos debe tomar PRIMERO el gerente de seguridad?</q>
+<exp>A. El gerente de seguridad debería comunicarse con el proveedor para modificar la aplicación sólo después de evaluar el riesgo y los controles compensatorios.
+B. Antes de aprobar cualquier excepción, el gerente de seguridad debe verificar primero los controles compensatorios y evaluar el posible riesgo debido a un incumplimiento con el estándar.
+C. El gerente de seguridad puede justificar la desviación de la política, pero esto debería basarse en una evaluación de riesgo y controles compensatorios . La desviación en sí debe ser aprobada de acuerdo con un proceso definido.
+D. Actualizar los niveles mínimos de configuración no está asociado con las solicitudes para las desviaciones.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="66" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Cuál de los siguientes mecanismos de capacitación es el medio MÁS efectivo de promocionar una cultura de seguridad organizacional?</q>
+<exp>A. Ciertas personas tienen la inclinación individual, o tienen un puesto que así lo exige, de tener mayor interés para promocionar la seguridad que otras . Al seleccionar estas personas y ofrecerles oportunidades diversas y amplias para la educación sobre seguridad, se les permite actuar como embajadores en sus respectivos equipos y departamentos, impartiendo un cambio gradual y significativo en una cultura organizacional hacia la seguridad.
+B. La capacitación estructurada raramente se alinea con los intereses de los empleados individuales cuando se los selecciona al azar para completar un grupo pequeño.
+C. La capacitación basada en computadora es un enfoque común a la concienciación anual sobre la información, pero no hay evidencia de que los empleados retengan la información o la adopten en sus actividades regulares.
+D. Los "webinars" con transmisión de video son uno de los medios menos efectivos de presentar información, ya que requieren muy poca interacción por parte de los usuarios finales.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="67" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Dónde se deberían identificar inicialmente los requerimientos de recursos para la seguridad de la información?</q>
+<exp>A. Las políticas se desarrollan para implementar la estrategia y pueden especificar algunos requerimientos, pero son subsiguientes a, y parte de, la implementación de la estrategia.
+B. La arquitectura debe implementar las políticas y los estándares.
+C. La estrategia debe definir los requerimientos para los recursos necesarios para implementar el programa.
+Esto es diferente desde el nivel de detalle táctico necesario para identificar los recursos específicos.
+D. Los procedimientos definirán los procesos de adquisición de recursos, pero no especificarán requerimientos.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="68" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Es una institución financiera, ¿bajo cuál de las siguientes circunstancias las políticas necesitarán con MAYOR probabilidad alguna modificación?</q>
+<exp>A. Las modificaciones necesarias a los controles de acceso se reflejarán con mayor probabilidad en los estándares, no en las políticas.
+B. El cumplimiento con los estándares existente probablemente no requerirá de un cambio en la política, sino mas bien de un reforzamiento en el cumplimiento.
+C. Si la viabilidad de la organización está en duda (empresa activa), no es probable que un cambio en la política solucione el problema.
+D. Un nuevo conjunto de regulaciones que requiera cambios significativos al programa de seguridad de la información es más probable que se refleje en las modificaciones de la política.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="69" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Cuál de las siguientes herramientas debe revisar un gerente de seguridad de la información recién contratado para poder entender qué tan efectivamente se administra el portafolio actual de proyectos de seguridad de información?</q>
+<exp>A. Una base de datos del proyecto puede contener información para un proyecto específico y actualizaciones para varios parámetros relacionados al estado actual de ese proyecto en particular.
+B. La base de datos de la cartera (portfolio) de proyectos es la base para la gestión de la cartera (portfolio) de proyectos. Esto incluye los datos del proyecto como propietario, cronogramas, objetivos, tipo de proyecto, estado y costos. La gestión de la cartera (portfolio) de proyectos requiere informes específicos para la cartera (portfolio) de proyectos.
+C. Los documentos de las políticas en la gestión de proyectos establecen la dirección para el diseño, el desarrollo, la implementación y el monitoreo del proyecto.
+D. Una oficina de administración del programa es el equipo que supervisa la entrega de la cartera (portfolio) de proyectos. La revisión de la oficina puede proporcionar información significativa en el conjunto de habilidades y estructura organizacional, pero no sobre qué tan efectivamente se administra el conjunto de proyectos de seguridad de la información actual.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="70" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál es el objetivo PRINCIPAL de desarrollar un programa de seguridad de la información?</q>
+<exp>A. La política no debe escribirse por sí misma. Para que sea efectiva, la política debe abordar el panorama de riesgos y amenazas que usualmente es la base para el desarrollo de estrategias.
+B. El nivel de tiempo arriba o disponible requerido será definido como parte del desarrollo de la estrategia balanceado con los costos.
+C. No todos los controles deben ser fuertes, y el nivel de control debe estar determinado por la relación costo - beneficio, el impacto en la productividad y otros factores.
+D. La estrategia de seguridad de la información ofrece una hoja de ruta del desarrollo según el cual se construye el programa.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="71" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Un gerente de seguridad de la información ha implementado un proceso automatizado para comparar el acceso físico usando tarjetas de deslizamiento operadas por el departamento de seguridad física con el acceso lógico en el sistema de inicio único de sesión (SSO). ¿Cuál es el uso MÁS probable para esta información?</q>
+<exp>A. Las discrepancias entre el acceso físico y el acceso lógico pueden ocurrir para una variedad de motivos, pero todos son indicios de que algo anda mal y de que el riesgo es elevado . Las discrepancias podrían indicar que los empleados hacen ingreso sin identificarse aprovechando que otros sí lo hacen, contraseñas compartidas o intentos en accesos no autorizados y, por lo tanto, este monitoreo puede servir como un indicador clave de riesgo (KRI).
+B. El posible ingreso sin autenticar aprovechando que otros sí se autentican puede ser identificado si más individuos inician sesión desde adentro de la red de los que ingresan físicamente a la instalación ; sin embargo, esto es solo un indicador clave de riesgo (KRI).
+C. Si bien esta información podría indicar que el control de acceso físico no está funcionando de manera adecuada, la responsabilidad de la supervisión del departamento de seguridad física no es usualmente una función del gerente de seguridad de la información.
+D. Comparar el acceso físico con el acceso lógico no es una manera efectiva de monitorear el sistema de inicio único de sesión (SSO), y existen otros métodos más específicos y útiles para este propósito.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="72" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Qué actividad debe realizar PRIMERO el gerente de seguridad de la información después de hallar que el cumplimiento con un conjunto de estándares es débil?</q>
+<exp>A. El proceso de excepción puede ser utilizado después de evaluar el riesgo de incumplimiento y determinar si los controles compensatorios son necesarios.
+B. Modificar la política no es necesario, a menos que no haya un estándar y una política aplicable.
+C. No es apropiado aumentar la exigencia de cumplimiento hasta que el gerente de seguridad de la información haya determinado el alcance del riesgo que presenta un cumplimiento débil.
+D. La primera acción después de hallar incumplimiento con estándares específicos debería ser determinar el riesgo para la organización y el posible impacto.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="73" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Cuándo el proceso de control de acceso es MÁS efectivo?</q>
+<exp>A. Integrar los controles de acceso para todos los activos de TI mejora la eficiencia y facilita las operaciones, pero no impacta en la efectividad . Los mismos resultados pueden lograrse sin la integración a expensas del tiempo y esfuerzo adicionales.
+B. El objetivo primario del proceso de control de acceso es prevenir el acceso no autorizado, que requiere que las actividades de los usuarios sean identificables de manera única para propósitos de determinar responsabilidades.
+C. La validación de la identidad a través de la autenticación respalda el proceso de control de acceso, pero saber que los usuarios son quienes dicen ser no se traduce en el control de las acciones de dichos usuarios, a menos que las actividades de los usuarios individuales puedan ser rastreadas a sus fuentes.
+D. El modelo de controles de acceso basados en roles (RBAC) aumenta la eficiencia, pero no aumenta la efectividad.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="74" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>La relación entre las políticas y los estándares corporativos puede describirse MEJOR por cuál de las siguientes asociaciones?</q>
+<exp>A. En la mayoría de los casos, existe una relación directa entre la política y los estándares corporativos.
+B. Los estándares corporativos en general no proporcionan detalles sobre el significado de la política, salvo sobre los límites aceptables necesarios para cumplir con la intención de la política.
+C. Los estándares corporativos establecen los límites y fronteras aceptables para las personas, los procesos y la tecnología como una expresión de la intención de la política y, por lo tanto, proporcionan instrucciones sobre el cumplimiento de la política.
+D. Sería una práctica deficiente contar con normas corporativas que expresen directamente la intención de una política en particular. En la medida en que existen, deben basarse en una política implícita.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="75" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de los siguientes enfoques es el MEJOR para tener operando para mitigar el riesgo de la reputación derivado del uso de redes sociales?</q>
+<exp>A. La organización debe haber definido políticas de uso aceptable de redes sociales y los empleados deben asistir a sesiones de entrenamiento de concienciación obligatorias.
+B. No es efectivo escanear continuamente las redes sociales en búsqueda de anuncios inadecuados porque una vez que un artículo está publicado, puede no ser posible eliminarlo.
+C. Bloquear los puertos en el cortafuegos (firewall) puede no ser efectivo porque las aplicaciones podrían cambiar los puertos o los usuarios pueden acceder a las aplicaciones fuera del cortafuegos (firewall).
+D. La evaluación de la responsabilidad legal no limitará el riesgo de la reputación derivado del uso de las redes sociales.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="76" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Qué debe lograr la gestión de cambios desde una perspectiva de gestión de riesgos?</q>
+<exp>A. No es importante quién supervisa el proceso de gestión de cambios siempre y cuando tenga lugar la notificación y se implemente un proceso consistente.
+B. La supervisión de la gestión de cambios puede o no puede ser la responsabilidad del comité de dirección.
+C. La gestión de cambios es tan esencial como la gestión de la configuración y liberación para gestionar los riesgos de manera adecuada. La gestión de la configuración y liberación puede ser incluida como parte del proceso de gestión de cambios.
+D. En algunas organizaciones, la seguridad de la información es representada el comité de control de cambios.
+Como mínimo, la función de la gestión de cambios debe contar con un proceso que garantice la notificación a la seguridad de la información de los cambios propuestos con el fin de gestionar el riesgo que el cambio puede afectar.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="77" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Cuál de los siguientes es el motivo MÁS probable por el cual una organización ha decidido la extemalización (outsourcing) de los servicios de detección de intrusos?</q>
+<exp>A. Las recomendaciones de la auditoría puede llevar a un análisis de costo-beneficio, pero en general no instruyen un enfoque particular para resolver un problema identificado.
+B. Se dispone de la tecnología para detección de intrusos que reduce la complejidad para gestionar los niveles, pero puede no ser rentable.
+C. Un análisis de costo-beneficio aborda las ventajas y desventajas entre los servicios internos y externalizados (outsourcing) Si se escoge la externalización (outsourcing), se hace en general sobre la base de la relación costo - beneficio.
+D. Contratar personal con las habilidades adecuadas para la detección de intrusos en general es posible, pero puede no ser rentable.</exp>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="78" >
 <q></q>
 <exp></exp>
-<cat></cat>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="79" >
 <q></q>
 <exp></exp>
-<cat></cat>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="80" >
 <q></q>
 <exp></exp>
-<cat></cat>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="81" >
 <q></q>
 <exp></exp>
-<cat></cat>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="82" >
 <q></q>
