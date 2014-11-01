@@ -584,28 +584,43 @@ D. Contratar personal con las habilidades adecuadas para la detección de intruso
 <cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="78" >
-<q></q>
-<exp></exp>
+<q>Una medida de control apropiada para garantizar la autenticidad de las órdenes recibidas en una aplicación de sistema de intercambio electrónico de datos (EDI) consiste en:</q>
+<exp>A. Acusar recibo de órdenes electrónicas a través de un mensaje de confirmación es una buena práctica, pero no autenticará las órdenes de los clientes.
+B. Verificar si las cantidades son razonables antes de llenar órdenes es un control para garantizar que las órdenes de la empresa sean correctas, no la autenticidad de las órdenes de sus clientes.
+C. Encriptar mensajes sensibles es un paso adecuado, pero no se aplica a los mensajes recibidos.
+D. Un sistema EDI está sujeto no solamente a la habitual exposición a los riesgos de sistemas informáticos, sino también a los que surgen de la potencial ineficacia de los controles de la parte del socio y el tercero proveedor de servicios, dando lugar a que la autenticación de los usuarios y de los mensajes se convierta en un gran problema de seguridad.</exp>
 <cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="79" >
-<q></q>
-<exp></exp>
+<q>¿Cuál de las siguientes opciones de diseño es el enfoque menos costoso para alcanzar la autenticación y la integridad de datos?</q>
+<exp>A. La biométrica en general es uno de los mecanismos de autenticación más costosos.
+B. La respuesta a desafíos implementada de manera adecuada proporciona autenticación, y un hash seguro ofrece integridad y ambos son inherentes en la mayoría de los sistemas operativos (OS) sin costo adicional.
+C. Los tokens para hardware son un costo adicional más allá de que es soportado en la mayoría de los sistemas operativos (OS) actuales. Puede haber gastos continuos así como también gastos por única vez.
+D. La infraestructura de clave pública (PKI) es complicada de establecer, y requiere de varios servidores dedicados y un conocimiento técnico significativo.</exp>
 <cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="80" >
-<q></q>
-<exp></exp>
+<q>¿Cuál es el beneficio PRINCIPAL de un programa de entrenamiento de concienciación de la seguridad?</q>
+<exp>A. Cada persona/empleado debe conocer de qué manera la seguridad de la información se relaciona con el rol de su trabajo y el motivo por el cual las tareas deben ser realizadas de una manera adecuada que proteja a la organización y a sus activos.
+B. Si bien el cumplimiento con la política de seguridad de la información es importante, el entrenamiento de concienciación de la seguridad va más allá para incluir los elementos conductuales y culturales de la seguridad de la información.
+C. La legislación y las regulaciones específicas de la industria no son los principales impulsores de los programas de entrenamiento de concienciación de la seguridad.
+D. Las expectativas de los empleados no necesariamente garantizan el entendimiento de la seguridad de la información o influyen directamente sobre las actitudes conductuales y culturales.</exp>
 <cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="81" >
-<q></q>
-<exp></exp>
+<q>¿Quién tiene la autoridad inherente de permitir una excepción a la política de seguridad de la información?</q>
+<exp>A. El dueño del proceso de negocio es típicamente necesario para hacer cumplir la política y normalmente no tendría la autoridad para otorgar una excepción.
+B. El gerente departamental no puede aprobar una excepción a una política porque no es responsable de que la política entregue sus resultados prometidos.
+C. La persona o el organismo con la facultad para aprobar una política tiene el poder de otorgar excepciones a ella porque al aprobarla, asumió la responsabilidad de los resultados que promete entregar.
+D. El gerente de seguridad de la información no puede aprobar una excepción a una política porque no es responsable de que la política entregue sus resultados prometidos.</exp>
 <cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="82" >
-<q></q>
-<exp></exp>
+<q>Qué actividad de recursos humanos (HR) es MÁS crucial en la administración de dispositivos móviles suministrados por la organización?</q>
+<exp>A. Cuando el departamento de recursos humanos (HR) notifica el cese del personal, la gerencia de seguridad puede realizar un desaprovisionamiento de los dispositivos móviles.
+B. Las verificaciones de antecedentes en general no ayudan a la administración de dispositivos móviles .
+C. Las estructuras jerárquicas en general no afectan a la administración de dispositivos móviles.
+D. Recursos humanos (HR) puede respaldar programas de concienciación de la seguridad de la información. Sin embargo, desde la perspectiva de gestión, la recuperación de dispositivos después del despido de personal será más importante.</exp>
 <cat></cat>
 </question>
 <question id="83" >

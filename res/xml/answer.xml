@@ -462,34 +462,34 @@
 <opcion seq="3" correct="0">Debido a la escasez de personal competente</opcion>
 </answer>
 <answer id="78">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">acusar recibo de órdenes electrónicas a través de un mensaje de confirmación</opcion>
+<opcion seq="1" correct="0">verificar si las cantidades son razonables antes de llenar órdenes</opcion>
+<opcion seq="2" correct="0">encriptar las órdenes electrónicas</opcion>
+<opcion seq="3" correct="1">verificar la identidad de los remitentes y determinar si las órdenes corresponden con los términos del contrato</opcion>
 </answer>
 <answer id="79">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Biométrica conjuntamente con encriptación sólida</opcion>
+<opcion seq="1" correct="1">Autenticación para respuesta a desafíos y un hash seguro</opcion>
+<opcion seq="2" correct="0">Encriptación de enlaces y tokens para hardware</opcion>
+<opcion seq="3" correct="0">Infraestructura de clave pública (PKI)</opcion>
 </answer>
 <answer id="80">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Reducir la probabilidad de un evento de seguridad de la información</opcion>
+<opcion seq="1" correct="0">Alentar el cumplimiento con la política de seguridad de la información</opcion>
+<opcion seq="2" correct="0">Cumplir con la legislación y las regulaciones específicas de la industria y locales</opcion>
+<opcion seq="3" correct="0">Ofrecer a los empleados expectativas para la seguridad de la información</opcion>
 </answer>
 <answer id="81">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">El dueño del proceso de negocio</opcion>
+<opcion seq="1" correct="0">El gerente departamental</opcion>
+<opcion seq="2" correct="1">El aprobador de políticas</opcion>
+<opcion seq="3" correct="0">El gerente de seguridad de la información</opcion>
 </answer>
 <answer id="82">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">HR proporciona las notificaciones de despido</opcion>
+<opcion seq="1" correct="0">HR proporciona verificaciones de antecedentes</opcion>
+<opcion seq="2" correct="0">HR proporciona estructuras jerárquicas</opcion>
+<opcion seq="3" correct="0">HR proporciona respaldo de concienciación</opcion>
 </answer>
 <answer id="83">
 <opcion seq="0" correct=""></opcion>
