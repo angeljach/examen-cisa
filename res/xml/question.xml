@@ -621,96 +621,151 @@ D. El gerente de seguridad de la información no puede aprobar una excepción a un
 B. Las verificaciones de antecedentes en general no ayudan a la administración de dispositivos móviles .
 C. Las estructuras jerárquicas en general no afectan a la administración de dispositivos móviles.
 D. Recursos humanos (HR) puede respaldar programas de concienciación de la seguridad de la información. Sin embargo, desde la perspectiva de gestión, la recuperación de dispositivos después del despido de personal será más importante.</exp>
-<cat></cat>
+<cat>Desarrollo y Gestión del Programa de Seguridad de la Información (Dominio 3)</cat>
 </question>
 <question id="83" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de las siguientes opciones es MÁS importante para garantizar la admisibilidad de evidencia forense?</q>
+<exp>A. Mientras que la evidencia debe retenerse necesariamente la suficiente cantidad de tiempo para enviarse, la duración del período de retención por sí misma no afecta la admisibilidad de la evidencia.
+B. Los medios de sólo lectura reducen la posibilidad de manipulación como una capacidad técnica, pero el mantenimiento de una cadena de custodia sirve como una protección adecuada en cualquiera de los casos.
+C. La revisión por parte de una autoridad independiente no garantiza la admisibilidad.
+D. La evidencia es inadmisible sin una cadena de custodia clara, que es la capacidad de poder rastrear quién tuvo el control de la evidencia durante el proceso.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="84" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Qué medida debe tomar un equipo de respuesta a incidentes si la investigación de un evento de respuesta a incidentes no puede completarse en el tiempo asignado?</q>
+<exp>A. Cada acción no exitosa simplemente desperdicia tiempo, escale y continúe.
+B. Debido a que el proceso de investigación debe tener limitaciones de tiempo, si el equipo inicial no puede encontrar una resolución en el tiempo asignado en el plan, deben escalar la resolución al siguiente nivel y continuar con la recuperación del sistema.
+C. La actividad en un evento de respuesta a incidentes no debe detenerse hasta que se haya determinado la causa raíz, pero es posible que se deba solicitar a otros equipos que dividan el trabajo y completen el plan de respuesta.
+D. No se debe declarar un desastre hasta que se haya determinado la causa raíz o hasta que la alta gerencia haya determinado que la resolución llevará más tiempo del aceptable para una interrupción del sistema.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="85" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de las siguientes opciones es una característica de la tecnología de Gestión de información de seguridad y eventos (SIEM)?</q>
+<exp>A. Gestión de información de seguridad y eventos (SIEN» puede brindar información sobre el cumplimiento de la política así como del monitoreo de incidentes y otras capacidades, si se desarrolla, configura y ajusta en forma adecuada.
+B. Gestión de información de seguridad y eventos (SIEM) no se utiliza para gestionar el riesgo residual.
+C. Gestión de información de seguridad y eventos (SIEM) es una revisión automatizada de los registros a través de la agregación y correlación, y no reemplaza la necesidad de cortafuegos.
+D. Gestión de información de seguridad y eventos (SIEM) brinda una serie de controles detectivos, no controles compensatorios.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="86" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cual de los siguientes elementos es MÁS importante para determinar el punto objetivo de recuperación (RPO) para un proceso crítico en una empresa?</q>
+<exp>A. El tiempo objetivo de recuperación (RTO) es la cantidad de tiempo permitida para la recuperación de una función o un recurso del negocio después de un desastre . El RTO no es un factor para determinar el objetivo de punto de recuperación (RPO).
+B. La determinación del punto objetivo de recuperación (RPO) ya habría tenido en cuenta el costo.
+C. El nivel de prestación de servicios se relaciona directamente con las necesidades del negocio. Es el nivel de servicios que se ha alcanzado durante el modo de proceso alterno hasta que la situación normal se restablezca.
+D. El punto objetivo de recuperación (RPO) se determina tomando como base la pérdida de datos aceptable en el caso de interrupción de las operaciones . Indica el punto más temprano en el tiempo que es aceptable para recuperar los datos. El RPO cuantifica efectivamente la cantidad permisible de pérdida de datos en caso de interrupción.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="87" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Qué acción debería tomar PRIMERO el gerente de seguridad cuando los informes de incidentes de distintas unidades organizacionales son inconsistentes y altamente inexactos?</q>
+<exp>A. La primera medida es validar que haya establecido y comunicado a toda la organización una clara definición de incidente y sus criterios de severidad.
+B. Un programa de capacitación no será efectivo hasta que se hayan establecido criterios de gravedad y una identificación clara de incidente.
+C. El comité de dirección puede involucrarse después de que se hayan establecido y comunicado claramente los criterios de incidente.
+D. Las actividades de cumplimiento no serán efectivas a menos que se hayan establecido y comunicado claramente los criterios de incidente.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="88" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de las siguientes medidas se integra en el plan de respuesta a incidentes mediante la declaración "Si la base de datos se altera por un incidente, se debe restaurar el respaldo al cierre del trabajo del día anterior"?</q>
+<exp>A. El tiempo objetivo de recuperación (RTO) es la cantidad de tiempo permitida para la recuperación de una función o un recurso del negocio después de que ocurre un desastre . La declaración no mencionó el tiempo para que concluya la restauración.
+B. El punto objetivo de recuperación (RPO) se determina tomando como base la pérdida de datos aceptables en el caso de interrupción de las operaciones. Indica el punto más temprano en el tiempo que es aceptable para recuperar los datos. El RPO cuantifrca efectivamente la cantidad permisible de pérdida de datos en caso de interrupción. La declaración permite la pérdida de datos del día actual.
+C. Directamente relacionados con las necesidades de negocio, el objetivo de prestación de servicios (SDO) es el nivel de servicios que se deben alcanzar durante el modo de proceso alterno hasta que se vuelva a la situación normal. El SDO es el nivel de servicio aceptable dentro del objetivo de tiempo de recuperación (RTO).
+D. El tiempo máximo tolerable de Interrupción (MTO) es el tiempo máximo durante el cual una empresa puede continuar el proceso en modo alterno.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="89" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>En el seguimiento de un incidente de seguridad, el administrador del sistema copiará los datos de un disco duro a otro. Desde el punto de vista forense, ¿cuál de las siguientes tareas se debe garantizar?</q>
+<exp>A. Para realizar una copia, el disco duro de destino no necesariamente debe ser el que mantiene la misma especificación que el disco original; por lo tanto, esta no es la mejor opción.
+B. Es recomendable realizar un doble respaldo; sin embargo, eso no prueba que los datos no sean modificados por alguien.
+C. Para probar que los datos no se modifican antes o después de la copia, es mejor mantener un hash digital de los dos discos duros. Los hashes solos no son adecuados para cumplir con los estándares de admisibilidad de la evidencia, pero estos respaldarán otros aspectos de integridad en el contexto de datos forenses.
+D. Es recomendable realizar una prueba de restauración. Esto es para asegurar la disponibilidad en lugar de mantener la capacidad de evidencia.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="90" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>A pesar de que un ejercicio de recuperación ante desastres en el hot site de una organización restauró con éxito todos los servicios esenciales, la prueba se consideró un fracaso. ¿Cuál de las siguientes circunstancias sería la causa MÁS probable?</q>
+<exp>A. El tiempo máximo tolerable de Interrupción (MTO), la cantidad de tiempo que la organización puede operar en modo alterno, normalmente excedería la ventana de interrupción aceptable (AIW).
+B. Mientras que una diferencia en las versiones del sistema operativo (OS) puede causar una demora, probablemente sería menor.
+C. Los objetivos de prestación de servicios (SDO) se relacionan directamente con las necesidades del negocio. El SDO es el nivel de servicios que se ha alcanzado durante el modo de proceso alterno hasta que la situación normal se restablezca. El incumplimiento de los SDO en algunos sistemas podría ser una preocupación, pero no necesariamente llevaría a la conclusión que la prueba fue un fracaso.
+D. El exceso de la ventana de interrupción aceptable (AIW) provocaría un daño significativo en la organización y debe evitarse. La ventana de interrupción aceptable es el periodo máximo que un sistema puede no estar disponible antes de que se ponga en riesgo el logro de los objetivos de negocio de la empresa.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="91" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de las siguientes opciones es el recurso de respuesta a incidentes MÁS importante para la identificación oportuna de un incidente de seguridad de la información?</q>
+<exp>A. No todos los incidentes de seguridad de la información se originan en la red; un sistema de detección de intrusos (IDS) puede no ser de utilidad para la detección de una variedad de tipos de incidentes.
+B. La diversificación de los medios de comunicación aumenta las probabilidades de que la información llegue a las personas a las que se envía, pero no hace nada para garantizar que las personas correctas reciban la información correcta en el tiempo correcto.
+C. Un incidente no se identifica dentro de una organización hasta que se declara, lo cual es una responsabilidad de negocio que está mas allá del alcance del personal técnico . Un plan de comunicación bien definido y estructurado garantiza que la información fluye del personal técnico a los responsables de la toma de decisiones de manera oportuna, permitiendo que los incidentes se reconozcan, declaren y aborden correctamente.
+D. La revisión de los registros proporciona la oportunidad de identificar patrones de tráfico irregulares que pueden indicar un incidente de seguridad de la información, pero estos registros proporcionan información sobre un subconjunto de vectores de ataque solamente (por ejemplo, la penetración externa normalmente se cubriría, pero las amenazas internas no). Además, si los analistas que identifican información potencialmente reveladora no tienen mecanismos instalados para compartir esas revelaciones con otros en la organización, una respuesta efectiva es menos probable.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="92" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Cuál de las siguientes acciones es la MEJOR para garantizar que las actividades de respuesta a incidentes sean consistentes con los requerimientos de continuidad del negocio?</q>
+<exp>A. Un recorrido (walk-through) estructurado que incluye la respuesta a incidentes y el personal encargado de la continuidad del negocio brinda la mejor oportunidad para identificar brechas o desalineaciones entre los planes.
+B. Publicar un plan de respuesta a incidentes a nivel empresarial sería efectivo solo si la continuidad del negocio se alineó a la respuesta a incidentes . La respuesta a incidentes respalda la continuidad del negocio, y no a la inversa.
+C. Compartir las perspectivas es valioso, pero un grupo de trabajo no necesariamente logra garantizar que las interfaces entre los planes sean aplicables.
+D. Un plan de proyecto desarrollado para la recuperación ante desastres no necesariamente abordará las deficiencias en la continuidad del negocio o la respuesta a incidentes.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="93" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Un gerente de seguridad de la información recién contratado examina el plan de continuidad del negocio que tiene 10 años de antigüedad y observa que el tiempo máximo tolerable de Interrupción (MTO) es mucho más corto que la ventana de interrupción aceptable (AIW). ¿Qué medida debería tomarse como resultado de esta infonnación?</q>
+<exp>A. La realización de una evaluación del impacto en el negocio (BIA) incluirá la reevaluación del tiempo máximo tolerable de Interrupción (MTO) ; hasta ese momento, no hay manera de determinar si es el MTO o la ventana de interrupción aceptable (AIW) la incorrecta.
+B. El primer problema es determinar si el plan está vigente y actualizar los requerimientos según sea necesario. La evaluación del impacto en el negocio (BIA) probablemente sea un esfuerzo colaborativo con los propietarios del proceso de negocio.
+C. El objetivo de entrega de servicios (SDO) deberá actualizarse al realizar una evaluación del impacto en el negocio (BIA).
+D. El tiempo máximo tolerable de Interrupción (MTO) siempre será igual a la ventana de interrupción aceptable (AIW) y por lo general es mayor.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="94" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Cuál de los siguientes beneficios que recibe la empresa al trabajar un programa de gestión de incidentes sistemático con una metodología formal es MÁS importante?</q>
+<exp>A. Cuanto más formalizado se vuelva algo, menos flexible es.
+B. Una metodología formal en realidad puede funcionar con mayor facilidad como una función independiente, con menos confianza en las actividades de continuidad del negocio.
+C. Tener una metodología formal significa que las funciones por lo general se asignan en base a la competencia y a la disponibilidad de tiempo.
+D. Los reclamos legales y de responsabilidad son más creíbles cuando los mecanismos utilizados para recopilarlos están formalmente documentados, son repetibles y se practican con regularidad.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="95" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Planes de respuesta no probados:</q>
+<exp>A. Aunque la información de contacto actualizada es importante, no es más importante en un plan no probado de lo que sí sería para una plan probado.
+B. Si un riesgo es aceptable o no, es una determinación de negocio y no una función de prueba.
+C. Un plan de respuesta puede no ser viable en las pruebas a pesar de cubrir todas las áreas según se registró.
+D. Si un plan se probó o no se probó no se observa rápidamente durante la inspección.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="96" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿Qué es lo que hace que un programa de gestión de incidentes sea efectivo?</q>
+<exp>A. La gestión de incidentes identifica y evalúa los incidentes a medida que ocurren. Después implementa mejoras para evitar que ocurran en el futuro.
+B. La detección y documentación de los incidentes solo forma parte del proceso ; se deben abordar y prevenir futuras ocurrencias.
+C. La gestión de riesgos ocurre fuera del programa de gestión de incidentes.
+D. Los objetivos se establecen en base a la necesidad del negocio y las capacidades se crean para cumplir con esos objetivos.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="97" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Una organización está preocupada principalmente por el impacto financiero del tiempo de inactividad asociado con un incidente de seguridad de la información . ¿Cuál de los siguientes elementos sería el control compensatorio MÁS apropiado para tener operando?</q>
+<exp>A. Almacenar los medios de respaldo fuera del sitio mejora la probabilidad de que estén disponibles para utilizar para actividades de recuperación, pero además incrementa la cantidad de tiempo necesaria para completar la recuperación. En una situación donde la principal preocupación es el impacto financiero del tiempo de inactividad, un contrato de almacenamiento de medios fuera del sitio no resulta útil.
+B. El seguro contra interrupción del negocio no ayuda a restaurar las operaciones, pero sí compensa un negocio por el impacto financiero asociado con la interrupción. En este escenario, el impacto financiero del tiempo de inactividad es la principal preocupación, por lo tanto el seguro es un control compensatorio apropiado.
+C. Una arquitectura que proporciona conexión de apoyo en tiempo real evita que el impacto financiero esté inactivo, pero lo hace a un costo significativo . Es poco probable que una organización que se preocupa principalmente por el impacto financiero (en lugar de la eficiencia operacional u otros asuntos) acepte este costo más elevado ya que los otros beneficios asociados con la conexión de apoyo en tiempo real no se ven como algo justificable.
+D. Un plan de recuperación ante desastres ayuda a la organización a realizar los pasos necesarios para volver a las operaciones normales después de un desastre, pero aún un plan claramente desarrollado y probado no compensa el impacto financiero del tiempo de inactividad, y muchos incidentes de seguridad de la información tienen impactos que no cumplen con el umbral de desastres.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="98" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Si una organización tiene un requerimiento de operaciones continuas, ¿cuál de los siguientes enfoques sería MEJOR para probar la respuesta y la recuperación?</q>
+<exp>A. Una prueba de interrupción completa, en la que las operaciones se cierran en el sitio principal y se envían al sitio de recuperación, es la forma de prueba de recuperación y respuesta más estricta, pero posiblemente sea perjudicial.
+Aún cuando la organización en este escenario puede aceptar el costo de dicha prueba, la necesidad de operaciones continuas hace que sea inapropiado.
+B. Las pruebas de simulación prueban a las personas y los procesos, pero no van más allá que el inicio de las operaciones en el sitio de recuperación, por lo tanto proporcionan un nivel de aseguramiento inferior al que proporcionaría una prueba paralela.
+C. La organización en este escenario requiere operaciones continuas . Una prueba paralela, en la que las operaciones se realizan en línea en el sitio de recuperación junto con las operaciones del sitio principal, es lo más cercano a una prueba completa a la que puede llegar una organización sin arriesgar un impacto del negocio, por eso es lo que mejor se ajusta al requerimiento.
+D. Los recorridos (walk-through) estructurados son actividades con lápiz y papel. Un recorrido (walk-through) puede ayudar a identificar las limitaciones, deficiencias y oportunidades de mejora, pero el nivel de aseguramiento que proporciona es relativamente bajo para una prueba paralela.</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="99" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>Al establecer un nuevo equipo de gestión de incidentes cuyos miembros prestarán servicio en forma parcial, ¿cuál de los siguientes medios de capacitación es el MÁS efectivo?</q>
+<exp>A. La capacitación formal es una buena opción cuando alguien es nuevo debido a que no supone ningún conocimiento previo y garantiza que todos cubran el mismo material.
+B. La tutoría es más efectiva cuando los miembros principales de un equipo establecido pueden complementarse con nuevos miembros. No funciona bien cuando alguien es nuevo.
+C. La capacitación en el sitio de trabajo es una opción adecuada cuando el material que se debe aprender forma parte de las tareas diarias de los participantes. Para un equipo de gestión de incidentes compuesto por miembros de tiempo parcial, habrá oportunidades limitadas para capacitarse en el curso de actividades diarias y regulares.
+D. La inducción proporciona descripción básica de las actividades del equipo de gestión de incidentes y sirve como base para una futura capacitación . En sí no es un medio de capacitación efectivo</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 <question id="100" >
-<q></q>
-<exp></exp>
-<cat></cat>
+<q>¿De qué manera ayuda el conocimiento del apetito de riesgo a incrementar la efectividad del control de seguridad?</q>
+<exp>A. Contarle a la gerencia cuál es el apetito de riesgo probablemente obtendrá como respuesta "¿Y qué?". Esta fuera del contexto de la efectividad del control.
+B. Entender el apetito de riesgo en las áreas clave de control ayuda a redirigir los recursos desde riesgos que están en un nivel aceptable, o bajo dicho nivel, a riesgos que están sobre la tolerancia. El resultado es una mejora en la efectividad de los controles sin costo adicional.
+C. Esta respuesta no aborda el valor de comprender el apetito de riesgo. La efectividad del control y el entorno de riesgo no cambian, pero el monitoreo continuo se aplica más a controles que cambian rápidamente, y para áreas de mayor riesgo. Los cambios en el apetito de riesgo por lo general son más estables.
+D. El conocimiento del apetito de riesgo ayuda a facilitar la comunicación con la gerencia, pero es solo un pequeño elemento de comunicación efectiva con la alta gerencia .</exp>
+<cat>Gestión de Incidentes de Seguridad de la Información (Dominio 4)</cat>
 </question>
 </questions>

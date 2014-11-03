@@ -492,111 +492,111 @@
 <opcion seq="3" correct="0">HR proporciona respaldo de concienciación</opcion>
 </answer>
 <answer id="83">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Un adecuado período de retención</opcion>
+<opcion seq="1" correct="0">Almacenamiento en medios de sólo lectura</opcion>
+<opcion seq="2" correct="0">Revisión por parte de una autoridad independiente</opcion>
+<opcion seq="3" correct="1">Trazabilidad del control</opcion>
 </answer>
 <answer id="84">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Seguir trabajando en la acción vigente</opcion>
+<opcion seq="1" correct="1">Escalar al siguiente nivel para su resolución</opcion>
+<opcion seq="2" correct="0">Pasar a la siguiente acción del plan</opcion>
+<opcion seq="3" correct="0">Declarar un desastre</opcion>
 </answer>
 <answer id="85">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">SIEM promueve el cumplimiento de las políticas de seguridad</opcion>
+<opcion seq="1" correct="0">SIEM es principalmente un medio para administrar el riesgo residual</opcion>
+<opcion seq="2" correct="0">SIEM reemplaza la necesidad de instalar un cortafuegos</opcion>
+<opcion seq="3" correct="0">SIEM proporciona una gama completa de controles compensatorios</opcion>
 </answer>
 <answer id="86">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">La cantidad de horas de tiempo improductivo aceptable</opcion>
+<opcion seq="1" correct="0">El costo total para recuperar sistemas críticos</opcion>
+<opcion seq="2" correct="0">La reducción aceptable en el nivel del servicio</opcion>
+<opcion seq="3" correct="1">La cantidad de datos perdidos que sea aceptable</opcion>
 </answer>
 <answer id="87">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Garantizar que existe una definición clara de incidente organizacional y una jerarquía de gravedad</opcion>
+<opcion seq="1" correct="0">Iniciar un programa de concientización y capacitación sobre identificación de incidentes en toda la compañía</opcion>
+<opcion seq="2" correct="0">Escalar el asunto al comité directivo de seguridad para que tome la medida adecuada</opcion>
+<opcion seq="3" correct="0">Involucrar al departamento de Recursos Humanos (HR) en la implementación de un programa de cumplimiento de informes</opcion>
 </answer>
 <answer id="88">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">El tiempo objetivo de recuperación (RTO)</opcion>
+<opcion seq="1" correct="1">El punto objetivo de recuperación (RPO)</opcion>
+<opcion seq="2" correct="0">El objetivo de entrega del servicio (SDO)</opcion>
+<opcion seq="3" correct="0">El tiempo máximo tolerable de Interrupción (MTO)</opcion>
 </answer>
 <answer id="89">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Copiar en el mismo modelo de disco que el original</opcion>
+<opcion seq="1" correct="0">Realizar un doble respaldo del disco original</opcion>
+<opcion seq="2" correct="1">Mantener el hash digital de tos dos discos duros</opcion>
+<opcion seq="3" correct="0">Realizar una prueba de restauración después de la replicación</opcion>
 </answer>
 <answer id="90">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">El tiempo máximo tolerable de Interrupción (MTO) excedió la ventana de interrupción aceptable (AIW)</opcion>
+<opcion seq="1" correct="0">Los planes de recuperación especificaron versiones del sistema operativo (OS) desactualizadas</opcion>
+<opcion seq="2" correct="0">Algunos sistemas restaurados excedieron los objetivos de entrega de servicios (SDO)</opcion>
+<opcion seq="3" correct="1">Las actividades de recuperación agregadas excedieron la ventana de interrupción aceptable (AIW)</opcion>
 </answer>
 <answer id="91">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Un sistema de detección de intrusos (IDS) totalmente actualizado</opcion>
+<opcion seq="1" correct="0">Múltiples canales para la distribución de la información</opcion>
+<opcion seq="2" correct="1">Un plan de comunicación bien definido y estructurado</opcion>
+<opcion seq="3" correct="0">Una agenda regular para revisión de los registros de dispositivos de red</opcion>
 </answer>
 <answer id="92">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Desarrollar un escenario y realizar un recorrido (walk-through) estructurado</opcion>
+<opcion seq="1" correct="0">Redactar y publicar una práctica clara para la respuesta a incidentes a nivel empresarial</opcion>
+<opcion seq="2" correct="0">Establecer un grupo de trabajo con representantes de los distintos departamentos para compartir perspectivas</opcion>
+<opcion seq="3" correct="0">Desarrollar un plan de proyecto para las pruebas completas de la recuperación ante desastres</opcion>
 </answer>
 <answer id="93">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Reevaluar el tiempo máximo tolebrable de Interrupción (MTO)</opcion>
+<opcion seq="1" correct="1">Llevar a cabo una evaluación del impacto sobre el negocio (BIA) y actualizar el plan</opcion>
+<opcion seq="2" correct="0">Incrementar el objetivo de entrega del servicio (SDO)</opcion>
+<opcion seq="3" correct="0">No tomar ninguna medida; el tiempo máximo tolerable de Interrupción (MTO) no se relaciona con la AIW</opcion>
 </answer>
 <answer id="94">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Una metodología formal hace que la gestión de incidentes sea más flexible</opcion>
+<opcion seq="1" correct="0">Una metodología formal depende más de las actividades de continuidad del negocio</opcion>
+<opcion seq="2" correct="0">Cada encargado de responder ante el incidente puede adquirir amplia experiencia</opcion>
+<opcion seq="3" correct="1">La evidencia de debida diligencia soporta la gestión de reclamos legales y de responsabilidad</opcion>
 </answer>
 <answer id="95">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">dependen de información de contacto actualizada</opcion>
+<opcion seq="1" correct="0">presentan un riesgo inaceptable para la organización</opcion>
+<opcion seq="2" correct="1">presentan el riesgo de que el plan no funcionará cuando se lo necesite</opcion>
+<opcion seq="3" correct="0">se distinguen rápidamente de los planes probados</opcion>
 </answer>
 <answer id="96">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Identifica, evalúa y previene la recurrencia de incidentes</opcion>
+<opcion seq="1" correct="0">Detecta y documenta los incidentes</opcion>
+<opcion seq="2" correct="0">Incluye una estrategia de gestión de riesgos</opcion>
+<opcion seq="3" correct="0">Refleja las capacidades de la organización</opcion>
 </answer>
 <answer id="97">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Un contrato de almacenamiento de medios fuera del sitio</opcion>
+<opcion seq="1" correct="1">Seguro contra interrupción del negocio</opcion>
+<opcion seq="2" correct="0">Una arquitectura de conexión de apoyo en tiempo real</opcion>
+<opcion seq="3" correct="0">Un plan de recuperación ante desastres</opcion>
 </answer>
 <answer id="98">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Una prueba de interrupción completa</opcion>
+<opcion seq="1" correct="0">Una prueba de simulación</opcion>
+<opcion seq="2" correct="1">Una prueba paralela</opcion>
+<opcion seq="3" correct="0">Un recorrido (walk-through) estructurado</opcion>
 </answer>
 <answer id="99">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="1">Capacitación formal</opcion>
+<opcion seq="1" correct="0">Tutoría</opcion>
+<opcion seq="2" correct="0">Capacitación en el sitio de trabajo</opcion>
+<opcion seq="3" correct="0">Inducción</opcion>
 </answer>
 <answer id="100">
-<opcion seq="0" correct=""></opcion>
-<opcion seq="1" correct=""></opcion>
-<opcion seq="2" correct=""></opcion>
-<opcion seq="3" correct=""></opcion>
+<opcion seq="0" correct="0">Le muestra a la alta gerencia que usted entiende sus necesidades</opcion>
+<opcion seq="1" correct="1">Proporciona una base para redistribuir los recursos para mitigar el riesgo fuera de la tolerancia a riesgos</opcion>
+<opcion seq="2" correct="0">Requiere el monitoreo continuo porque el entorno de riesgo completo cambia constantemente</opcion>
+<opcion seq="3" correct="0">Facilita la comunicación con la gerencia sobre la importancia de la seguridad</opcion>
 </answer>
 </answers>
